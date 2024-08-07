@@ -1,0 +1,25 @@
+{
+    "name": "voices4budget/contents-plugin",
+    "type": "october-plugin",
+    "description": "Voices4Budget Contents plugin for October CMS",
+    "homepage": "https://github.com/gugigustaman/voices4budget-contents-oc-plugin",
+    "keywords": ["october", "octobercms", "voices4budget", "custom", "contents"],
+    "authors": [
+        {
+            "name": "Gugi Gustaman",
+            "email": "gugi.gustaman.15@gmail.com",
+            "role": "Original Author"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "composer/installers": "~1.0"
+    },
+    "support": {
+        "issues": "https://github.com/gugigustaman/voices4budget-contents-oc-plugin/issues",
+        "source": "https://github.com/gugigustaman/voices4budget-contents-oc-plugin"
+    },
+    "extra": {
+        "installer-name": "contents"
+    }
+}

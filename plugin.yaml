@@ -1,0 +1,6 @@
+plugin:
+    name: 'voices4budget.contents::lang.plugin.name'
+    description: 'voices4budget.contents::lang.plugin.description'
+    author: Voices4Budget
+    icon: oc-icon-bullhorn
+    homepage: ''
