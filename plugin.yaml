@@ -4,3 +4,84 @@ plugin:
     author: Voices4Budget
     icon: oc-icon-bullhorn
     homepage: ''
+permissions:
+    voices4budget.countries.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.countries.read'
+    voices4budget.countries.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.countries.write'
+    voices4budget.areatypes.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.areatypes.read'
+    voices4budget.areatypes.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.areatypes.write'
+    voices4budget.categories.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.categories.read'
+    voices4budget.categories.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.categories.write'
+    voices4budget.programs.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.programs.read'
+    voices4budget.programs.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.programs.write'
+    voices4budget.areas.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.areas.read'
+    voices4budget.areas.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.areas.write'
+    voices4budget.votingsessions.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.votingsessions.read'
+    voices4budget.votingsessions.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.votingsessions.write'
+navigation:
+    locations:
+        label: 'voices4budget.contents::lang.menu.locations'
+        url: voices4budget/contents/countries
+        icon: icon-globe
+        permissions:
+            - voices4budget.countries.read
+        sideMenu:
+            countries:
+                label: 'voices4budget.contents::lang.entity.country.plural'
+                url: voices4budget/contents/countries
+                icon: icon-globe
+                permissions:
+                    - voices4budget.countries.read
+            areatypes:
+                label: 'voices4budget.contents::lang.entity.areatype.plural'
+                url: voices4budget/contents/areatypes
+                icon: icon-flag-checkered
+                permissions:
+                    - voices4budget.areatypes.read
+            areas:
+                label: 'voices4budget.contents::lang.entity.area.plural'
+                url: voices4budget/contents/areas
+                icon: icon-flag
+                permissions:
+                    - voices4budget.areas.read
+    voting:
+        label: 'voices4budget.contents::lang.menu.voting'
+        url: voices4budget/contents/programs
+        icon: icon-check-circle
+        permissions: {  }
+        sideMenu:
+            votingsessions:
+                label: 'voices4budget.contents::lang.entity.votingsession.plural'
+                url: voices4budget/contents/votingsessions
+                icon: icon-calendar
+                permissions:
+                    - voices4budget.votingsessions.read
+            categories:
+                label: 'voices4budget.contents::lang.entity.category.plural'
+                url: voices4budget/contents/categories
+                icon: icon-folder-open
+                permissions:
+                    - voices4budget.categories.read

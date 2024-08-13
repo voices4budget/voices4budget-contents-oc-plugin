@@ -1,0 +1,10 @@
+name: Countries
+form: $/voices4budget/contents/models/country/fields.yaml
+modelClass: Voices4budget\Contents\Models\Country
+defaultRedirect: voices4budget/contents/countries
+create:
+    redirect: 'voices4budget/contents/countries/update/:id'
+    redirectClose: voices4budget/contents/countries
+update:
+    redirect: voices4budget/contents/countries
+    redirectClose: voices4budget/contents/countries

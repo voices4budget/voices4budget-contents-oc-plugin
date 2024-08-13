@@ -1,0 +1,12 @@
+fields:
+    id:
+        label: ID
+        span: auto
+        hidden: false
+        required: true
+        type: text
+    name:
+        label: Name
+        span: auto
+        required: true
+        type: text

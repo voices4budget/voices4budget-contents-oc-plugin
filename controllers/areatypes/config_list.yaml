@@ -1,0 +1,17 @@
+list: $/voices4budget/contents/models/areatype/columns.yaml
+modelClass: Voices4budget\Contents\Models\AreaType
+title: AreaTypes
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'voices4budget/contents/areatypes/update/:id'
+structure:
+    showTree: true
+    showSorting: false
+    maxDepth: 4
+    treeExpanded: false

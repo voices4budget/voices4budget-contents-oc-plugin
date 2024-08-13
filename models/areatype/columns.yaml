@@ -1,0 +1,17 @@
+columns:
+    name:
+        label: 'voices4budget.contents::lang.entity.areatype.attributes.name'
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: 'voices4budget.contents::lang.entity.areatype.attributes.description'
+        type: text
+        searchable: true
+        sortable: true
+    country_id:
+        label: 'voices4budget.contents::lang.entity.country.singular'
+        type: text
+        sortable: true
+        select: name
+        relation: country

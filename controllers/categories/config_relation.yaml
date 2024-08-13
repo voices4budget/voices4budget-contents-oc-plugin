@@ -1,0 +1,13 @@
+programs:
+    label: 'voices4budget.contents::lang.entity.program.singular'
+    view:
+        list: $/voices4budget/contents/models/program/columns.yaml
+        toolbarButtons: create|delete
+        recordsPerPage: 10
+        showSorting: false
+        defaultSort:
+            column: letter_index
+            direction: asc
+
+    manage:
+        form: $/voices4budget/contents/models/program/fields.yaml

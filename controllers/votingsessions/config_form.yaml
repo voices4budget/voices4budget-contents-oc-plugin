@@ -1,0 +1,10 @@
+name: VotingSessions
+form: $/voices4budget/contents/models/votingsession/fields.yaml
+modelClass: Voices4budget\Contents\Models\VotingSession
+defaultRedirect: voices4budget/contents/votingsessions
+create:
+    redirect: 'voices4budget/contents/votingsessions/update/:id'
+    redirectClose: voices4budget/contents/votingsessions
+update:
+    redirect: voices4budget/contents/votingsessions
+    redirectClose: voices4budget/contents/votingsessions

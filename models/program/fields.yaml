@@ -1,0 +1,29 @@
+fields:
+    title:
+        label: 'voices4budget.contents::lang.entity.program.attributes.title'
+        span: left
+        required: true
+        type: text
+    letter_index:
+        label: 'voices4budget.contents::lang.entity.program.attributes.letter_index'
+        span: auto
+        required: false
+        type: text
+    voting_sessions:
+        label: 'voices4budget.contents::lang.entity.votingsession.plural'
+        nameFrom: name
+        span: auto
+        required: true
+        type: relation
+    description:
+        label: 'voices4budget.contents::lang.entity.program.attributes.description'
+        size: large
+        span: full
+        required: true
+        type: textarea
+    goal:
+        label: 'voices4budget.contents::lang.entity.program.attributes.goal'
+        size: large
+        span: full
+        required: true
+        type: textarea

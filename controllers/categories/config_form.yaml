@@ -1,0 +1,10 @@
+name: 'voices4budget.contents::lang.entity.category.singular'
+form: $/voices4budget/contents/models/category/fields.yaml
+modelClass: Voices4budget\Contents\Models\Category
+defaultRedirect: voices4budget/contents/categories
+create:
+    redirect: 'voices4budget/contents/categories/update/:id'
+    redirectClose: voices4budget/contents/categories
+update:
+    redirect: voices4budget/contents/categories
+    redirectClose: voices4budget/contents/categories

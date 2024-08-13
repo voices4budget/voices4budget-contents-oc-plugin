@@ -1,0 +1,10 @@
+name: AreaTypes
+form: $/voices4budget/contents/models/areatype/fields.yaml
+modelClass: Voices4budget\Contents\Models\AreaType
+defaultRedirect: voices4budget/contents/areatypes
+create:
+    redirect: 'voices4budget/contents/areatypes/update/:id'
+    redirectClose: voices4budget/contents/areatypes
+update:
+    redirect: voices4budget/contents/areatypes
+    redirectClose: voices4budget/contents/areatypes

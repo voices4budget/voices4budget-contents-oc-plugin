@@ -1,7 +1,12 @@
 <?php namespace Voices4budget\Contents\Classes;
 
+use Backend\Controllers\Users;
+use Backend\Widgets\Form;
 use Config;
 use October\Rain\Extension\Container as ExtensionContainer;
+use Voices4budget\Contents\Models\Area;
+use Voices4budget\Contents\Models\AreaType;
+use Voices4budget\Contents\Models\Country;
 
 /**
  * ExtendUserPlugin
@@ -16,8 +21,6 @@ class ExtendUserPlugin
         $this->extendUserModel();
 
         // User
-
-        $events->listen('rainlab.user.view.extendPreviewTabs', [static::class, 'extendPreviewTabs']);
 
         $events->listen('backend.form.extendFields', [static::class, 'extendUserFormFields']);
 
@@ -38,7 +41,33 @@ class ExtendUserPlugin
     public function extendUserModel()
     {
         ExtensionContainer::extendClass(\RainLab\User\Models\User::class, static function($model) {
-            
+            unset($model->rules['password']);
+            $model->addJsonable('data');
+            $model->belongsTo['country'] = [\Voices4budget\Contents\Models\Country::class];
+            $model->belongsTo['area'] = [\Voices4budget\Contents\Models\Area::class];
+
+            $model->addDynamicMethod('getDropdownOptions', function($fieldName, $value, $formData) use($model) {
+                if (str_starts_with($fieldName, 'area-')) {
+                    if (!property_exists($formData, 'country')) {
+                        $formData->country = 'ID';
+                    }
+
+                    $type = str_replace('area-', '', $fieldName);
+
+                    $area_type = AreaType::find($type);
+
+                    $query = Area::where('country_id', $formData->country)
+                        ->where('area_type_id', $type);
+
+                    if ($area_type->parent_id && property_exists($formData, 'area-' . $area_type->parent_id)) {
+                        $query->where('parent_id', $formData->{'area-' . $area_type->parent_id});
+                    }
+
+                    return $query->get()->mapWithKeys(function($item) {
+                        return [$item->id => $item->name];
+                    });
+                }
+            });
         });
     }
 
@@ -48,22 +77,10 @@ class ExtendUserPlugin
     public function extendSettingModel()
     {
         ExtensionContainer::extendClass(\RainLab\User\Models\Setting::class, static function($model) {
-            $model->bindEvent('model.initSettingsData', function() use ($model) {
-                $model->use_address_book = Config::get('rainlab.userplus::use_address_book', true);
-            });
+            // $model->bindEvent('model.initSettingsData', function() use ($model) {
+            //     $model->use_address_book = Config::get('rainlab.userplus::use_address_book', true);
+            // });
         });
-    }
-
-    /**
-     * extendPreviewTabs
-     */
-    public function extendPreviewTabs()
-    {
-        return [
-            "Profile" => $this->checkUseAddressBook()
-                ? '$/rainlab/userplus/partials/_user_address_book.php'
-                : '$/rainlab/userplus/partials/_user_profile.php'
-        ];
     }
 
     /**
@@ -74,9 +91,6 @@ class ExtendUserPlugin
         if (!$this->checkControllerMatchesSetting($widget)) {
             return;
         }
-
-        $widget->addTabField('use_address_book', 'Use Address Book')->displayAs('switch')->tab("Profile")->span('full')
-            ->comment("Allow users to manage multiple addresses, otherwise users can provide only a single address.");
     }
 
     /**
@@ -90,6 +104,80 @@ class ExtendUserPlugin
 
         $widget->removeField('password');
         $widget->removeField('password_confirmation');
+        $widget->removeField('_password_ruler');
+        $widget->removeField('_group_ruler');
+        $widget->removeField('primary_group');
+        $widget->removeField('groups');
+        $widget->removeField('is_mail_blocked');
+        $widget->removeField('is_two_factor_enabled');
+
+        $dataFields = [
+            'age' => [
+                'label' => 'Age',
+                'type' => 'dropdown',
+                'span' => 'auto',
+                'options' => [
+                    '17-25' => '17 - 25 years old',
+                    '26-45' => '26 - 45 years old',
+                    '45-65' => '45 - 65 years old',
+                    'others' => 'Others'
+                ]
+            ],
+            'gender' => [
+                'label' => 'Gender',
+                'type' => 'dropdown',
+                'span' => 'auto',
+                'options' => [
+                    'MALE' => 'Male',
+                    'FEMALE' => 'Female',
+                    'OTHERS' => 'Others'
+                ]
+            ],
+            'country' => [
+                'label' => 'Country',
+                'type' => 'relation',
+                'tab' => 'Profile',
+                'span' => 'auto',
+                'nameFrom' => 'name'
+            ]
+        ];
+
+        $area_types = AreaType::whereNull('parent_id')->get();
+
+        foreach ($area_types as $type) {
+            $area = $type;
+
+            while ($area) {
+
+                $dataFields['area-' . $area->id] = [
+                    'label' => $area->name,
+                    'type' => 'dropdown',
+                    'tab' => 'Profile',
+                    'span' => 'auto',
+                    'trigger' => [
+                        'action' => 'show',
+                        'field' => 'country',
+                        'condition' => "value[$area->country_id]"
+                    ],
+                    'placeholder' => "-- Choose $area->name --"
+                ];
+
+                $dataFields['area-' . $area->id]['dependsOn'] = $area->parent ? 'area-' . $area->parent->id : 'country';
+
+                $area = $area->children->first();
+            }
+        }
+
+        $widget->addTabFields([
+            'data' => [
+                'type' => 'nestedform',
+                'showPanel' => false,
+                'tab' => 'Profile',
+                'form' => [
+                    'fields' => $dataFields
+                ]
+            ]
+        ]);
     }
 
     /**
@@ -102,6 +190,8 @@ class ExtendUserPlugin
         }
 
         // $widget->defineColumn('company', "Company")->after('email')->searchable();
+
+
     }
 
     /**

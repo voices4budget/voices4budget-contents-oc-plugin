@@ -1,0 +1,35 @@
+fields:
+    title:
+        label: 'voices4budget.contents::lang.entity.program.attributes.title'
+        span: auto
+        required: true
+        type: text
+    country:
+        label: 'voices4budget.contents::lang.entity.country.singular'
+        nameFrom: name
+        span: auto
+        required: true
+        type: relation
+    voting_sessions:
+        label: 'voices4budget.contents::lang.entity.votingsession.plural'
+        nameFrom: name
+        span: auto
+        required: true
+        type: relation
+    parent:
+        label: 'voices4budget.contents::lang.entity.category.attributes.parent'
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        required: 0
+        type: relation
+        emptyOption: None
+    description:
+        label: 'voices4budget.contents::lang.entity.program.attributes.description'
+        size: small
+        span: full
+        type: textarea
+    programs:
+        label: 'voices4budget.contents::lang.entity.program.plural'
+        type: partial
+        path: programs

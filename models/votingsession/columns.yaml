@@ -1,0 +1,21 @@
+columns:
+    name:
+        label: 'voices4budget.contents::lang.entity.votingsession.attributes.name'
+        type: text
+        searchable: true
+        sortable: true
+    starts_at:
+        label: 'voices4budget.contents::lang.entity.votingsession.attributes.starts_at'
+        type: datetime
+        searchable: false
+        sortable: true
+    ends_at:
+        label: 'voices4budget.contents::lang.entity.votingsession.attributes.ends_at'
+        type: datetime
+        searchable: false
+        sortable: true
+    description:
+        label: 'voices4budget.contents::lang.entity.votingsession.attributes.description'
+        type: text
+        searchable: true
+        sortable: true

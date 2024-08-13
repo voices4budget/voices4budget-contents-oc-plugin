@@ -1,0 +1,23 @@
+columns:
+    letter_index:
+        label: 'voices4budget.contents::lang.entity.program.attributes.letter_index'
+        type: text
+        searchable: true
+        sortable: true
+    title:
+        label: 'voices4budget.contents::lang.entity.program.attributes.title'
+        type: text
+        searchable: true
+        sortable: true
+    voting_sessions:
+        label: 'voices4budget.contents::lang.entity.votingsession.singular'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: voting_sessions
+    goal:
+        label: 'voices4budget.contents::lang.entity.program.attributes.goal'
+        type: text
+        searchable: true
+        sortable: true

@@ -1,0 +1,20 @@
+fields:
+    name:
+        label: 'voices4budget.contents::lang.entity.area.attributes.name'
+        span: auto
+        required: 1
+        type: text
+    area_type:
+        label: 'voices4budget.contents::lang.entity.areatype.singular'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+    parent:
+        label: 'voices4budget.contents::lang.entity.area.attributes.parent'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+        emptyOption: None

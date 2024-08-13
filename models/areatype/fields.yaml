@@ -1,0 +1,33 @@
+fields:
+    name:
+        label: 'voices4budget.contents::lang.entity.areatype.attributes.name'
+        span: auto
+        required: 1
+        type: text
+    id:
+        label: 'voices4budget.contents::lang.entity.areatype.attributes.id'
+        span: auto
+        preset:
+            field: name
+            type: slug
+        type: text
+    parent:
+        label: 'voices4budget.contents::lang.entity.areatype.attributes.parent'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        required: 0
+        type: relation
+        emptyOption: None
+    country:
+        label: 'voices4budget.contents::lang.entity.country.singular'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+    description:
+        label: 'voices4budget.contents::lang.entity.areatype.attributes.description'
+        size: ''
+        span: full
+        type: textarea

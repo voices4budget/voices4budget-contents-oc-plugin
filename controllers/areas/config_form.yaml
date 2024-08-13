@@ -1,0 +1,10 @@
+name: Areas
+form: $/voices4budget/contents/models/area/fields.yaml
+modelClass: Voices4budget\Contents\Models\Area
+defaultRedirect: voices4budget/contents/areas
+create:
+    redirect: 'voices4budget/contents/areas/update/:id'
+    redirectClose: voices4budget/contents/areas
+update:
+    redirect: voices4budget/contents/areas
+    redirectClose: voices4budget/contents/areas

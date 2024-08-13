@@ -10,6 +10,10 @@ use Voices4Budget\Contents\Components\VotersAuthentication;
  */
 class Plugin extends PluginBase
 {
+    public $require = [
+        'Rainlab.User'
+    ];
+
     /**
      * register method, called when the plugin is first registered.
      */

@@ -1,4 +1,80 @@
 v0.0.1:
     - 'Initialize plugin'
 v0.0.2:
-    - 'Remove password from rainlab users table'
+    - 'Update rainlab users table'
+    - update_rainlab_users_table.php
+v0.0.3:
+    - 'Created table voices4budget_contents_countries'
+    - builder_table_create_voices4budget_contents_countries.php
+v0.0.4:
+    - 'Created table voices4budget_contents_area_types'
+    - builder_table_create_voices4budget_contents_area_types.php
+v0.0.5:
+    - 'Created table voices4budget_contents_programs'
+    - builder_table_create_voices4budget_contents_programs.php
+v0.0.6:
+    - 'Created table voices4budget_contents_subprograms'
+    - builder_table_create_voices4budget_contents_subprograms.php
+v0.0.7:
+    - 'Updated table voices4budget_contents_programs'
+    - builder_table_update_voices4budget_contents_programs.php
+v0.0.8:
+    - 'Updated table voices4budget_contents_subprograms'
+    - builder_table_update_voices4budget_contents_subprograms.php
+v0.0.9:
+    - 'Updated table voices4budget_contents_subprograms'
+    - builder_table_update_voices4budget_contents_subprograms_2.php
+v0.0.10:
+    - 'Updated table voices4budget_contents_area_types'
+    - builder_table_update_voices4budget_contents_area_types.php
+v0.0.11:
+    - 'Updated table voices4budget_contents_area_types'
+    - builder_table_update_voices4budget_contents_area_types_2.php
+v0.0.12:
+    - 'Created table voices4budget_contents_areas'
+    - builder_table_create_voices4budget_contents_areas.php
+v0.0.13:
+    - 'Updated table voices4budget_contents_areas'
+    - builder_table_update_voices4budget_contents_areas.php
+v0.0.14:
+    - 'Created table voices4budget_contents_voting_sessions'
+    - builder_table_create_voices4budget_contents_voting_sessions.php
+v0.0.15:
+    - 'Updated table voices4budget_contents_programs'
+    - builder_table_update_voices4budget_contents_programs_2.php
+v0.0.16:
+    - 'Updated table voices4budget_contents_programs'
+    - builder_table_update_voices4budget_contents_categories.php
+v0.0.17:
+    - 'Updated table voices4budget_contents_categories'
+    - builder_table_update_voices4budget_contents_categories_2.php
+v0.0.18:
+    - 'Updated table voices4budget_contents_subprograms'
+    - builder_table_update_voices4budget_contents_programs_3.php
+v0.0.19:
+    - 'Updated table voices4budget_contents_programs'
+    - builder_table_update_voices4budget_contents_programs_4.php
+v0.0.20:
+    - 'Updated table voices4budget_contents_categories'
+    - builder_table_update_voices4budget_contents_categories_3.php
+v0.0.21:
+    - 'Updated table voices4budget_contents_programs'
+    - builder_table_update_voices4budget_contents_programs_5.php
+v0.0.22:
+    - 'Updated table voices4budget_contents_areas'
+    - builder_table_update_voices4budget_contents_areas_2.php
+v0.0.23:
+    - 'Created table voices4budget_contents_voting_sessions_categories'
+    - builder_table_create_voices4budget_contents_voting_sessions_categories.php
+v0.0.24:
+    - 'Updated table voices4budget_contents_categories'
+    - builder_table_update_voices4budget_contents_categories_4.php
+v0.0.25:
+    - 'Updated table voices4budget_contents_programs'
+    - builder_table_update_voices4budget_contents_programs_6.php
+v0.0.26:
+    - 'Updated table voices4budget_contents_programs'
+    - builder_table_update_voices4budget_contents_programs_7.php
+v0.0.27:
+    - 'Created table voices4budget_contents_voting_sessions_programs'
+    - builder_table_create_voices4budget_contents_voting_sessions_programs.php
