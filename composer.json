@@ -13,7 +13,9 @@
     ],
     "require": {
         "php": ">=8.0",
-        "composer/installers": "~1.0"
+        "composer/installers": "~1.0",
+        "google/apiclient": "^2.17",
+        "firebase/php-jwt": "^6.10"
     },
     "support": {
         "issues": "https://github.com/gugigustaman/voices4budget-contents-oc-plugin/issues",
@@ -21,5 +23,10 @@
     },
     "extra": {
         "installer-name": "contents"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
     }
 }

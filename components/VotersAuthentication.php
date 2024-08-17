@@ -1,6 +1,7 @@
 <?php namespace Voices4Budget\Contents\Components;
 
-use Cms\Classes\ComponentBase;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use RainLab\User\Components\Authentication;
 
 /**
@@ -13,8 +14,12 @@ class VotersAuthentication extends Authentication
     public function componentDetails()
     {
         return [
-            'name' => 'Voters Authentication Component',
+            'name' => 'Voters Authentication',
             'description' => 'No description provided yet...'
         ];
+    }
+
+    public function onAuthenticated() {
+        // To do: handle credential responses
     }
 }

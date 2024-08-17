@@ -28,6 +28,18 @@
             'read' => 'View voting sessions',
             'write' => 'Manage voting sessions',
         ],
+        'comments' => [
+            'read' => 'View comments',
+            'write' => 'Manage comments',
+        ],
+        'ideas' => [
+            'read' => 'View ideas',
+            'write' => 'Manage ideas',
+        ],
+        'votes' => [
+            'read' => 'View votes',
+            'write' => 'Manage votes',
+        ],
     ],
     'entity' => [
         'country' => [
@@ -52,7 +64,8 @@
                 'title' => 'Title',
                 'slug' => 'Slug',
                 'description' => 'Description',
-                'parent' => 'Parent category'
+                'parent' => 'Parent category',
+                'max_vote' => 'Maximum vote',
             ],
             'plural' => 'Categories',
             'singular' => 'Category',
@@ -83,11 +96,49 @@
                 'ends_at' => 'Ends at',
             ],
             'plural' => 'Voting sessions',
-            'singular' => 'Voting session'
+            'singular' => 'Voting session',
+        ],
+        'comment' => [
+            'attributes' => [
+                'user' => 'User',
+                'program' => 'Program',
+                'comment' => 'Comment',
+                'created_at' => 'Added at',
+                'updated_at' => 'Updated at',
+            ],
+            'plural' => 'Comments',
+        ],
+        'idea' => [
+            'plural' => 'Ideas',
+            'attributes' => [
+                'user' => 'User',
+                'description' => 'Description',
+                'created_at' => 'Added at',
+                'updated_at' => 'Updated at',
+            ],
+        ],
+        'vote' => [
+            'plural' => 'Votes',
+            'attributes' => [
+                'user' => 'User',
+                'created_at' => 'Voted at',
+            ],
         ],
     ],
     'menu' => [
         'voting' => 'Voting',
         'locations' => 'Locations',
+    ],
+    'settings' => [
+        'tab' => [
+            'general' => 'General',
+        ],
+        'sections' => [],
+        'attributes' => [
+            'general' => [
+                'title' => 'Title',
+                'slogan' => 'Slogan'
+            ],
+        ],
     ],
 ];

@@ -1,0 +1,12 @@
+list: $/voices4budget/contents/models/idea/columns.yaml
+modelClass: Voices4budget\Contents\Models\Idea
+title: Ideas
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'voices4budget/contents/ideas/update/:id'

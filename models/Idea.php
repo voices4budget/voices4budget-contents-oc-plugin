@@ -1,15 +1,14 @@
 <?php namespace Voices4budget\Contents\Models;
 
 use Model;
+use RainLab\User\Models\User;
 
 /**
  * Model
  */
-class Area extends Model
+class Idea extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    use \October\Rain\Database\Traits\SimpleTree;
-    use \October\Rain\Database\Traits\Sortable;
     use \October\Rain\Database\Traits\SoftDelete;
 
     /**
@@ -20,7 +19,7 @@ class Area extends Model
     /**
      * @var string table in the database used by the model.
      */
-    public $table = 'voices4budget_contents_areas';
+    public $table = 'voices4budget_contents_ideas';
 
     /**
      * @var array rules for validation.
@@ -29,13 +28,8 @@ class Area extends Model
     ];
 
     public $belongsTo = [
-        'area_type' => [AreaType::class]
+        'user' => [User::class],
+        'category' => [Category::class]
     ];
-
-    public function beforeSave() {
-        $type = AreaType::find($this->area_type_id);
-
-        $this->country_id = $type->country_id;
-    }
 
 }

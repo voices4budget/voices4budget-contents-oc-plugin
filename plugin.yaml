@@ -41,6 +41,24 @@ permissions:
     voices4budget.votingsessions.write:
         tab: 'voices4budget.contents::lang.plugin.name'
         label: 'voices4budget.contents::lang.permissions.votingsessions.write'
+    voices4budget.comments.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.comments.read'
+    voices4budget.comments.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.comments.write'
+    voices4budget.ideas.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.ideas.read'
+    voices4budget.ideas.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.ideas.write'
+    voices4budget.votes.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.votes.read'
+    voices4budget.votes.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.votes.write'
 navigation:
     locations:
         label: 'voices4budget.contents::lang.menu.locations'
@@ -85,3 +103,21 @@ navigation:
                 icon: icon-folder-open
                 permissions:
                     - voices4budget.categories.read
+            comments:
+                label: 'voices4budget.contents::lang.entity.comment.plural'
+                url: voices4budget/contents/comments
+                icon: icon-comment
+                permissions:
+                    - voices4budget.comments.read
+            ideas:
+                label: 'voices4budget.contents::lang.entity.idea.plural'
+                url: voices4budget/contents/ideas
+                icon: icon-lightbulb-o
+                permissions:
+                    - voices4budget.ideas.read
+            votes:
+                label: 'voices4budget.contents::lang.entity.vote.plural'
+                url: voices4budget/contents/votes
+                icon: icon-check-square
+                permissions:
+                    - voices4budget.votes.read

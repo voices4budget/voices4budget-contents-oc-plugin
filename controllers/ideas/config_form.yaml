@@ -1,0 +1,10 @@
+name: Ideas
+form: $/voices4budget/contents/models/idea/fields.yaml
+modelClass: Voices4budget\Contents\Models\Idea
+defaultRedirect: voices4budget/contents/ideas
+create:
+    redirect: 'voices4budget/contents/ideas/update/:id'
+    redirectClose: voices4budget/contents/ideas
+update:
+    redirect: voices4budget/contents/ideas
+    redirectClose: voices4budget/contents/ideas

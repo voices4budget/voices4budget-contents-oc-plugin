@@ -1,0 +1,28 @@
+columns:
+    user_id:
+        label: 'voices4budget.contents::lang.entity.idea.attributes.user'
+        type: text
+        searchable: true
+        sortable: true
+        select: "concat(first_name, ' ', last_name)"
+        relation: user
+    category_id:
+        label: 'voices4budget.contents::lang.entity.category.singular'
+        type: text
+        searchable: true
+        sortable: true
+        select: title
+        relation: category
+    description:
+        label: 'voices4budget.contents::lang.entity.idea.attributes.description'
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'voices4budget.contents::lang.entity.idea.attributes.created_at'
+        type: datetime
+        sortable: true
+    updated_at:
+        label: 'voices4budget.contents::lang.entity.idea.attributes.updated_at'
+        type: datetime
+        sortable: true

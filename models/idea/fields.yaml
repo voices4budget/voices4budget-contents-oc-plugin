@@ -1,0 +1,22 @@
+fields:
+    user:
+        label: 'voices4budget.contents::lang.entity.idea.attributes.user'
+        nameFrom: name
+        descriptionFrom: description
+        select: "concat(first_name, ' ', last_name)"
+        span: auto
+        required: 1
+        type: relation
+    category:
+        label: 'voices4budget.contents::lang.entity.category.singular'
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+    description:
+        label: 'voices4budget.contents::lang.entity.idea.attributes.description'
+        size: large
+        span: full
+        required: 1
+        type: textarea

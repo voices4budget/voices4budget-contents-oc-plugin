@@ -1,0 +1,10 @@
+name: Comments
+form: $/voices4budget/contents/models/comment/fields.yaml
+modelClass: Voices4budget\Contents\Models\Comment
+defaultRedirect: voices4budget/contents/comments
+create:
+    redirect: 'voices4budget/contents/comments/update/:id'
+    redirectClose: voices4budget/contents/comments
+update:
+    redirect: voices4budget/contents/comments
+    redirectClose: voices4budget/contents/comments

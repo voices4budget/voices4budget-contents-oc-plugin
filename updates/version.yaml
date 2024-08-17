@@ -78,3 +78,15 @@ v0.0.26:
 v0.0.27:
     - 'Created table voices4budget_contents_voting_sessions_programs'
     - builder_table_create_voices4budget_contents_voting_sessions_programs.php
+v0.0.28:
+    - 'Updated table voices4budget_contents_categories'
+    - builder_table_update_voices4budget_contents_categories_5.php
+v0.0.29:
+    - 'Created table voices4budget_contents_votes'
+    - builder_table_create_voices4budget_contents_votes.php
+v0.0.30:
+    - 'Created table voices4budget_contents_comments'
+    - builder_table_create_voices4budget_contents_comments.php
+v0.0.31:
+    - 'Created table voices4budget_contents_ideas'
+    - builder_table_create_voices4budget_contents_ideas.php

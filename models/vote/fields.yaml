@@ -1,0 +1,23 @@
+fields:
+    user:
+        label: 'voices4budget.contents::lang.entity.vote.attributes.user'
+        nameFrom: first_name
+        descriptionFrom: description
+        select: "concat(first_name, ' ', last_name)"
+        span: auto
+        required: 1
+        type: relation
+    program:
+        label: 'voices4budget.contents::lang.entity.program.singular'
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+    voting_session:
+        label: 'voices4budget.contents::lang.entity.votingsession.singular'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation

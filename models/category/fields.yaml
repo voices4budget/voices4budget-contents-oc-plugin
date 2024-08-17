@@ -10,12 +10,6 @@ fields:
         span: auto
         required: true
         type: relation
-    voting_sessions:
-        label: 'voices4budget.contents::lang.entity.votingsession.plural'
-        nameFrom: name
-        span: auto
-        required: true
-        type: relation
     parent:
         label: 'voices4budget.contents::lang.entity.category.attributes.parent'
         nameFrom: title
@@ -24,10 +18,22 @@ fields:
         required: 0
         type: relation
         emptyOption: None
+    max_vote:
+        label: 'voices4budget.contents::lang.entity.category.attributes.max_vote'
+        span: auto
+        default: '1'
+        required: 1
+        type: number
+    voting_sessions:
+        label: 'voices4budget.contents::lang.entity.votingsession.plural'
+        nameFrom: name
+        span: auto
+        required: true
+        type: relation
     description:
         label: 'voices4budget.contents::lang.entity.program.attributes.description'
         size: small
-        span: full
+        span: auto
         type: textarea
     programs:
         label: 'voices4budget.contents::lang.entity.program.plural'

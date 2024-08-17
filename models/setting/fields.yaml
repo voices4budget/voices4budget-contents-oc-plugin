@@ -1,0 +1,12 @@
+tabs:
+    fields:
+        general_title:
+            label: 'voices4budget.contents::lang.settings.attributes.general.title'
+            span: auto
+            type: text
+            tab: 'voices4budget.contents::lang.settings.tab.general'
+        general_slogan:
+            label: 'voices4budget.contents::lang.settings.attributes.general.slogan'
+            span: auto
+            type: text
+            tab: 'voices4budget.contents::lang.settings.tab.general'
