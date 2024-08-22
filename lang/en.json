@@ -1,0 +1,9 @@
+{
+    "vote": {
+        "messages": {
+            "validations": {
+                "select_programs_first": "Please select the programs first."
+            }
+        }
+    }
+}

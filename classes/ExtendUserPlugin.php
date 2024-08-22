@@ -43,8 +43,8 @@ class ExtendUserPlugin
         ExtensionContainer::extendClass(\RainLab\User\Models\User::class, static function($model) {
             unset($model->rules['password']);
             $model->addJsonable('data');
-            $model->belongsTo['country'] = [\Voices4budget\Contents\Models\Country::class];
             $model->belongsTo['area'] = [\Voices4budget\Contents\Models\Area::class];
+            $model->addFillable(['data']);
 
             $model->addDynamicMethod('getDropdownOptions', function($fieldName, $value, $formData) use($model) {
                 if (str_starts_with($fieldName, 'area-')) {
@@ -64,6 +64,12 @@ class ExtendUserPlugin
                     }
 
                     return $query->get()->mapWithKeys(function($item) {
+                        return [$item->id => $item->name];
+                    });
+                }
+
+                if ($fieldName == 'country') {
+                    return Country::all()->mapWithKeys(function($item) {
                         return [$item->id => $item->name];
                     });
                 }
@@ -135,10 +141,9 @@ class ExtendUserPlugin
             ],
             'country' => [
                 'label' => 'Country',
-                'type' => 'relation',
+                'type' => 'dropdown',
                 'tab' => 'Profile',
-                'span' => 'auto',
-                'nameFrom' => 'name'
+                'span' => 'auto'
             ]
         ];
 

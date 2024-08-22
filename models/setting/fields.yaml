@@ -10,3 +10,8 @@ tabs:
             span: auto
             type: text
             tab: 'voices4budget.contents::lang.settings.tab.general'
+        misc_google_client_id:
+            label: 'voices4budget.contents::lang.settings.attributes.misc.google_client_id'
+            span: full
+            type: text
+            tab: 'voices4budget.contents::lang.settings.tab.misc'

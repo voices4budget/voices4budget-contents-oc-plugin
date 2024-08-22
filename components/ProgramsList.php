@@ -1,6 +1,8 @@
 <?php namespace Voices4Budget\Contents\Components;
 
+use Auth;
 use Cms\Classes\ComponentBase;
+use Voices4budget\Contents\Models\Comment;
 use Voices4budget\Contents\Models\Program;
 
 /**

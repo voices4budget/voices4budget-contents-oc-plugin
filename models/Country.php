@@ -1,6 +1,7 @@
 <?php namespace Voices4budget\Contents\Models;
 
 use Model;
+use ValidationException;
 
 /**
  * Model
@@ -31,4 +32,14 @@ class Country extends Model
     public $rules = [
     ];
 
+    public function beforeSave() {
+        if ($this->original['is_default'] != $this->is_default && $this->is_default == 1) {
+            self::where('id', '!=', $this->id)
+                ->update(['is_default' => 0]);
+        }
+    }
+
+    public static function default() {
+        return self::where('is_default')->first() ?? self::first();
+    }
 }

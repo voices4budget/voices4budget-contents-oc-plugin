@@ -27,6 +27,9 @@ class CategoriesList extends ComponentBase
     }
 
     public function categories() {
-        return Category::whereNull('parent_id')->get();
+        return Category::whereHas('voting_sessions', function($q) {
+                $q->where('is_active', 1);
+            })
+            ->whereNull('parent_id')->get();
     }
 }

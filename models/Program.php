@@ -1,5 +1,6 @@
 <?php namespace Voices4budget\Contents\Models;
 
+use Auth;
 use Model;
 
 /**
@@ -39,4 +40,23 @@ class Program extends Model
     public $belongsToMany = [
         'voting_sessions' => [VotingSession::class, 'table' => 'voices4budget_contents_voting_sessions_programs']
     ];
+
+    public $hasMany = [
+        'comments' => [Comment::class],
+        'votes' => [Vote::class]
+    ];
+
+    public function isVotedByCurrentUser() {
+        return $this->votes()
+            ->where('user_id', Auth::user()->id)
+            ->count() > 0;
+    }
+
+    public function votesByVotingSession($voting_session_id) {
+        return $this->withCount([
+            'votes' => function($q) use($voting_session_id) {
+                $q->where('voting_session_id', $voting_session_id);
+            }
+        ]);
+    }
 }

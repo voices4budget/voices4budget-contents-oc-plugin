@@ -1,5 +1,7 @@
 <?php namespace Voices4budget\Contents\Models;
 
+use Auth;
+use Carbon\Carbon;
 use Model;
 
 /**
@@ -13,7 +15,7 @@ class VotingSession extends Model
     /**
      * @var array dates to cast from the database.
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = ['starts_at', 'ends_at', 'deleted_at'];
 
     /**
      * @var string table in the database used by the model.
@@ -25,5 +27,17 @@ class VotingSession extends Model
      */
     public $rules = [
     ];
+
+    public $belongsToMany = [
+        'categories' => [Category::class, 'table' => 'voices4budget_contents_voting_sessions_categories']
+    ];
+
+    public function hasEnded() {
+        return Carbon::now()->gte($this->ends_at);
+    }
+
+    public function scopeEnded($query) {
+        $query->where('ends_at', '<=', Carbon::now());
+    }
 
 }

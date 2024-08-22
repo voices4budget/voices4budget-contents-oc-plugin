@@ -27,9 +27,17 @@ class Vote extends Model
     public $rules = [
     ];
 
+    protected $fillable = [
+        'user_id',
+        'voting_session_id',
+        'category_id',
+        'program_id'
+    ];
+
     public $belongsTo = [
         'user' => [User::class],
         'voting_session' => [VotingSession::class],
+        'category' => [Category::class],
         'program' => [Program::class]
     ];
 

@@ -45,6 +45,12 @@
         'country' => [
             'plural' => 'Countries',
             'singular' => 'Country',
+            'attributes' => [
+                'is_default' => 'Default country',
+            ],
+            'comments' => [
+                'is_default' => 'Voters will be assigned to this country if the country he is accessing the website from is not registered in this app',
+            ],
         ],
         'areatype' => [
             'plural' => 'Area types',
@@ -94,9 +100,13 @@
                 'description' => 'Description',
                 'starts_at' => 'Starts at',
                 'ends_at' => 'Ends at',
+                'is_active' => 'Active session',
             ],
             'plural' => 'Voting sessions',
             'singular' => 'Voting session',
+            'comments' => [
+                'is_active' => 'Making this session as active session means deactivating the current active session',
+            ],
         ],
         'comment' => [
             'attributes' => [
@@ -107,6 +117,9 @@
                 'updated_at' => 'Updated at',
             ],
             'plural' => 'Comments',
+            'messages' => [
+                'deleted' => 'Your comment has been removed. You can now add a new comment.'
+            ],
         ],
         'idea' => [
             'plural' => 'Ideas',
@@ -116,6 +129,11 @@
                 'created_at' => 'Added at',
                 'updated_at' => 'Updated at',
             ],
+            'messages' => [
+                'validations' => [
+                    'description.required' => 'Please fill in your idea first.',
+                ],
+            ],
         ],
         'vote' => [
             'plural' => 'Votes',
@@ -123,6 +141,11 @@
                 'user' => 'User',
                 'created_at' => 'Voted at',
             ],
+            'messages' => [
+                'validations' => [
+                    'select_programs_first' => 'Please vote the programs first.'
+                ]
+            ]
         ],
     ],
     'menu' => [
@@ -132,12 +155,17 @@
     'settings' => [
         'tab' => [
             'general' => 'General',
+            'misc' => 'Miscellaneous',
         ],
-        'sections' => [],
+        'sections' => [
+        ],
         'attributes' => [
             'general' => [
                 'title' => 'Title',
-                'slogan' => 'Slogan'
+                'slogan' => 'Slogan',
+            ],
+            'misc' => [
+                'google_client_id' => 'Google OAuth 2.0 Client ID',
             ],
         ],
     ],

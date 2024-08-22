@@ -90,3 +90,15 @@ v0.0.30:
 v0.0.31:
     - 'Created table voices4budget_contents_ideas'
     - builder_table_create_voices4budget_contents_ideas.php
+v0.0.32:
+    - 'Updated table voices4budget_contents_countries'
+    - builder_table_update_voices4budget_contents_countries.php
+v0.0.33:
+    - 'Updated table voices4budget_contents_voting_sessions'
+    - builder_table_update_voices4budget_contents_voting_sessions.php
+v0.0.34:
+    - 'Updated table voices4budget_contents_comments'
+    - builder_table_update_voices4budget_contents_comments.php
+v0.0.35:
+    - 'Updated table voices4budget_contents_votes'
+    - builder_table_update_voices4budget_contents_votes.php

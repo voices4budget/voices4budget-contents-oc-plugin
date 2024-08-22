@@ -27,9 +27,24 @@ class Comment extends Model
     public $rules = [
     ];
 
+    protected $fillable = [
+        'user_id',
+        'program_id',
+        'voting_session_id',
+        'comment'
+    ];
+
     public $belongsTo = [
         'user' => [User::class],
-        'program' => [Program::class]
+        'program' => [Program::class],
+        'voting_session' => [VotingSession::class]
     ];
+
+    public function scopeCurrentSessionBy($query, $user_id) {
+        return $query->whereHas('voting_session', function($q) {
+                $q->where('is_active', 1);
+            })
+            ->where('user_id', $user_id);
+    }
 
 }

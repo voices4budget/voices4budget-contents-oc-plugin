@@ -1,5 +1,6 @@
 <?php namespace Voices4budget\Contents\Models;
 
+use Auth;
 use Model;
 
 /**
@@ -39,11 +40,43 @@ class Category extends Model
     ];
 
     public $hasMany = [
-        'programs' => [Program::class]
+        'programs' => [Program::class],
+        'votes' => [Vote::class]
     ];
 
     public $belongsToMany = [
-        'voting_sessions' => [VotingSession::class, 'table' => 'voices4budget_contents_voting_sessions_categories']
+        'voting_sessions' => [VotingSession::class, 'table' => 'voices4budget_contents_voting_sessions_categories'],
+        'programs' => [Program::class, 'table' => 'voices4budget_contents_voting_sessions_categories']
     ];
+
+    public function isVotedByCurrentUser() {
+        return $this->votes()
+            ->where('user_id', Auth::user()->id)
+            ->count() > 0;
+    }
+
+    public function scopeVotedByCurrentUser($query) {
+        $query->whereHas('votes', function($q) {
+            $q->where('user_id', Auth::user()->id);
+        });
+    }
+
+    public function scopeAreSubprograms($query) {
+        $query->whereNotNull('parent_id');
+    }
+
+    public function rankedPrograms($voting_session_id, $count = null, $area_id = null) {
+        $query = $this->programs()->withCount([
+            'votes' => function($q) use ($voting_session_id, $area_id) {
+                $q->where('voting_session_id', $voting_session_id);
+            }
+        ])->orderBy('votes_count', 'desc');
+
+        if ($count) {
+            $query->take($count);
+        }
+
+        return $query->get();
+    }
 
 }

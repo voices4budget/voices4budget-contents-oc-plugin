@@ -10,3 +10,8 @@ fields:
         span: auto
         required: true
         type: text
+    is_default:
+        label: 'voices4budget.contents::lang.entity.country.attributes.is_default'
+        span: auto
+        type: switch
+        comment: 'voices4budget.contents::lang.entity.country.comments.is_default'

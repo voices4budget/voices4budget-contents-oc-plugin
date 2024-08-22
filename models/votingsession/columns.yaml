@@ -14,6 +14,10 @@ columns:
         type: datetime
         searchable: false
         sortable: true
+    is_active:
+        label: 'voices4budget.contents::lang.entity.votingsession.attributes.is_active'
+        type: switch
+        sortable: true
     description:
         label: 'voices4budget.contents::lang.entity.votingsession.attributes.description'
         type: text

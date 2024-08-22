@@ -25,6 +25,15 @@ class Idea extends Model
      * @var array rules for validation.
      */
     public $rules = [
+        'description' => ['required'],
+        'user_id' => ['required'],
+        'category_id' => [ 'required' ]
+    ];
+
+    protected $fillable = [
+        'user_id',
+        'category_id',
+        'description'
     ];
 
     public $belongsTo = [

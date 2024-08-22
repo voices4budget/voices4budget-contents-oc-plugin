@@ -39,4 +39,8 @@ class AreaType extends Model
     public $hasMany = [
         'areas' => [Area::class],
     ];
+
+    public $hasOne = [
+        'child' => [AreaType::class, 'key' => 'parent_id']
+    ];
 }
