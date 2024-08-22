@@ -42,7 +42,7 @@ class AreaTypesList extends ComponentBase
     }
 
     public function onAreaChanged() {
-        $changedId = post('data.'.input('changed'));
+        $changedId = post('data.area-'.input('changed'));
 
         $childType = AreaType::find(input('changed'))->child;
 
