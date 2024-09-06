@@ -1,0 +1,17 @@
+title: 'voices4budget.contents::lang.entity.stakeholder.plural'
+modelClass: Voices4budget\Contents\Models\Stakeholder
+list: $/voices4budget/contents/models/stakeholder/columns.yaml
+recordUrl: 'voices4budget/contents/stakeholders/update/:id'
+filter: $/voices4budget/contents/models/stakeholder/scopes.yaml
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+structure:
+  showReorder: true
+  dragRow: true
+  showTree: false

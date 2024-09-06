@@ -5,12 +5,11 @@ use Model;
 /**
  * Model
  */
-class Area extends Model
+class Stakeholder extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    use \October\Rain\Database\Traits\SimpleTree;
-    use \October\Rain\Database\Traits\Sortable;
     use \October\Rain\Database\Traits\SoftDelete;
+    use \October\Rain\Database\Traits\Sortable;
 
     /**
      * @var array dates to cast from the database.
@@ -20,7 +19,7 @@ class Area extends Model
     /**
      * @var string table in the database used by the model.
      */
-    public $table = 'voices4budget_contents_areas';
+    public $table = 'voices4budget_contents_stakeholders';
 
     /**
      * @var array rules for validation.
@@ -29,14 +28,7 @@ class Area extends Model
     ];
 
     public $belongsTo = [
-        'area_type' => [AreaType::class],
         'country' => [Country::class]
     ];
-
-    public function beforeSave() {
-        $type = AreaType::find($this->area_type_id);
-
-        $this->country_id = $type->country_id;
-    }
 
 }

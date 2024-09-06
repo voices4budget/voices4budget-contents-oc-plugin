@@ -1,6 +1,6 @@
 list: $/voices4budget/contents/models/area/columns.yaml
 modelClass: Voices4budget\Contents\Models\Area
-title: Areas
+title: 'voices4budget.contents::lang.entity.area.plural'
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true
@@ -10,6 +10,7 @@ toolbar:
     search:
         prompt: 'backend::lang.list.search_prompt'
 recordUrl: 'voices4budget/contents/areas/update/:id'
+filter: $/voices4budget/contents/models/area/scopes.yaml
 structure:
     showTree: true
     showSorting: false

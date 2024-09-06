@@ -59,6 +59,15 @@ permissions:
     voices4budget.votes.write:
         tab: 'voices4budget.contents::lang.plugin.name'
         label: 'voices4budget.contents::lang.permissions.votes.write'
+    voices4budget.voteresults.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.voteresults.read'
+    voices4budget.stakeholders.read:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.stakeholders.read'
+    voices4budget.stakeholders.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.stakeholders.write'
 navigation:
     locations:
         label: 'voices4budget.contents::lang.menu.locations'
@@ -85,6 +94,12 @@ navigation:
                 icon: icon-flag
                 permissions:
                     - voices4budget.areas.read
+            stakeholders:
+                label: 'voices4budget.contents::lang.entity.stakeholder.plural'
+                url: voices4budget/contents/stakeholders
+                icon: icon-users
+                permissions:
+                    - voices4budget.stakeholders.read
     voting:
         label: 'voices4budget.contents::lang.menu.voting'
         url: voices4budget/contents/programs
@@ -121,3 +136,9 @@ navigation:
                 icon: icon-check-square
                 permissions:
                     - voices4budget.votes.read
+            vote-results:
+                label: 'voices4budget.contents::lang.menu.vote_results'
+                url: voices4budget/contents/voteresults
+                icon: icon-pie-chart
+                permissions:
+                    - voices4budget.voteresults.read

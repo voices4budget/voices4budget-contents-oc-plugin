@@ -4,6 +4,13 @@ columns:
         type: text
         searchable: true
         sortable: true
+    country_id:
+        label: 'voices4budget.contents::lang.entity.country.singular'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: country
     starts_at:
         label: 'voices4budget.contents::lang.entity.votingsession.attributes.starts_at'
         type: datetime

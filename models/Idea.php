@@ -41,4 +41,33 @@ class Idea extends Model
         'category' => [Category::class]
     ];
 
+    public function getCountryOptions() {
+        return Country::lists('name', 'id');
+    }
+
+    public function scopeApplyCountryFilter($query, $scope) {
+        $query->whereHas('category', function($q) use($scope) {
+            $q->where('country_id', $scope->value);
+        });
+    }
+
+    public function getCategoryOptions() {
+        $scopeName = post('scopeName');
+        $country = post('value');
+        
+        $categories = Category::query();
+
+        if ($scopeName == 'country' && $country) {
+            $categories->where('country_id', $country);
+        }
+
+        return $categories->listsNested('title', 'id');
+    }
+
+    public function scopeApplyCategoryFilter($query, $scope) {
+        $query->whereHas('category', function($q) use($scope) {
+            $q->where('parent_id', $scope->value);
+        })->orWhere('category_id', $scope->value);
+    }
+
 }

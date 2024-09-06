@@ -33,6 +33,12 @@ class ExtendUserPlugin
         $this->extendSettingModel();
 
         $events->listen('backend.form.extendFields', [static::class, 'extendSettingFormFields']);
+
+        $events->listen('rainlab.user.view.extendPreviewTabs', function() {
+            return [
+                'Profile' => '$/voices4budget/contents/partials/_user_profile.php',
+            ];
+        });
     }
 
     /**

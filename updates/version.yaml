@@ -102,3 +102,15 @@ v0.0.34:
 v0.0.35:
     - 'Updated table voices4budget_contents_votes'
     - builder_table_update_voices4budget_contents_votes.php
+v0.0.36:
+    - 'Updated table voices4budget_contents_voting_sessions'
+    - builder_table_update_voices4budget_contents_voting_sessions_2.php
+v0.0.37:
+    - 'Updated table voices4budget_contents_voting_sessions'
+    - builder_table_update_voices4budget_contents_voting_sessions_3.php
+v0.0.38:
+    - 'Created table voices4budget_contents_stakeholders'
+    - builder_table_create_voices4budget_contents_stakeholders.php
+v0.0.39:
+    - 'Updated table voices4budget_contents_stakeholders'
+    - builder_table_update_voices4budget_contents_stakeholders.php

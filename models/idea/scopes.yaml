@@ -1,0 +1,13 @@
+scopes:
+    country:
+        type: dropdown
+        emptyOption: "- Select country -"
+        modelScope: applyCountryFilter
+        options: getCountryOptions
+    category:
+        type: dropdown
+        emptyOption: "-- Select category --"
+        conditions: category_id = (:value)
+        options: getCategoryOptions
+        dependsOn: country
+        modelScope: applyCategoryFilter

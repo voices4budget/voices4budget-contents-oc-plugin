@@ -32,6 +32,18 @@ class Country extends Model
     public $rules = [
     ];
 
+    public $hasMany = [
+        'areas' => [Area::class],
+        'stakeholders' => [Stakeholder::class]
+    ];
+
+    public $hasOne = [
+        'parent_area' => [
+            Area::class, 
+            'conditions' => 'parent_id is null'
+        ]
+    ];
+
     public function beforeSave() {
         if ($this->original['is_default'] != $this->is_default && $this->is_default == 1) {
             self::where('id', '!=', $this->id)

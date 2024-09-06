@@ -1,0 +1,6 @@
+scopes:
+    country:
+        label: Country
+        modelClass: Voices4budget\Contents\Models\Country
+        conditions: country_id in (:value)
+        nameFrom: name

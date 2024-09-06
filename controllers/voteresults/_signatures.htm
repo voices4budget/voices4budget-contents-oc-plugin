@@ -1,0 +1,13 @@
+<p class="text-center my-5">Kabupaten Donggala, <?= $now->format('j F Y') ?></p>
+
+<div class="row">
+<?php foreach ($voting_session->country->stakeholders as $stakeholder) { ?>
+    <div class="col-3">
+        <div class="stakeholder mb-5 w-100 text-center">
+            <h6 class="mb-5 pb-4 fw-bold"><?= $stakeholder->role ?></h6>
+            <hr class="mb-0" />
+            <p><?= $stakeholder->name ?></p>
+        </div>
+    </div>
+<?php } ?>
+</div>

@@ -1,0 +1,36 @@
+<?php foreach ($categories as $category) { ?>
+    <tr>
+        <td colspan="100" class="fw-bold"><?= $category->title ?></td>
+    </tr>
+    <?php foreach ($category->children as $subcategory) { ?>
+        <tr>
+            <td rowspan="<?= $subcategory->programs()->count() + 1 ?>" class="fw-medium"><?= $subcategory->title ?></td>
+        </tr>
+        <?php foreach ($subcategory->rankedPrograms($session_id) as $rank => $program) { ?>
+            <tr class="rowlink">
+                <td class="text-start<?= $rank >= 3 ? 'text-opacity-75' : 'bg-warning fw-medium' ?><?= $rank + 1 === $subcategory->programs()->count() ? '' : '' ?>" style="--bs-bg-opacity: .<?= $rank == 0 ? '15' : ($rank ==  1 ? '1' : ($rank == 2 ? '05' : '05')) ?>"><?= $rank + 1 ?></td>
+                <td class="text-start <?= $rank >= 3 ? 'text-opacity-75' : 'bg-warning' ?><?= $rank + 1 === $subcategory->programs()->count() ? '' : '' ?>" style="--bs-bg-opacity: .<?= $rank == 0 ? '15' : ($rank ==  1 ? '1' : ($rank == 2 ? '05' : '05')) ?>"><a href="#" style="display: none;"></a><?= $program->title ?></td>
+                <td class="text-end <?= $rank >= 3 ? 'text-opacity-75' : 'bg-warning' ?><?= $rank + 1 === $subcategory->programs()->count() ? '' : '' ?>" style="--bs-bg-opacity: .<?= $rank == 0 ? '15' : ($rank ==  1 ? '1' : ($rank == 2 ? '05' : '05')) ?>"><?= $program->votes_count ?></td>
+                <?php foreach ($age_ranges as $range) { ?>
+                    <td class="text-end <?= $rank >= 3 ? 'text-opacity-75' : 'bg-warning' ?><?= $rank + 1 === $subcategory->programs()->count() ? '' : '' ?>" style="--bs-bg-opacity: .<?= $rank == 0 ? '15' : ($rank ==  1 ? '1' : ($rank == 2 ? '05' : '05')) ?>"><?= $program->votesByAge->get($range) ?? 0 ?></td>
+                <?php } ?>
+                <?php foreach ($genders as $gender) { ?>
+                    <td class="text-end <?= $rank >= 3 ? 'text-opacity-75' : 'bg-warning' ?><?= $rank + 1 === $subcategory->programs()->count() ? '' : '' ?>" style="--bs-bg-opacity: .<?= $rank == 0 ? '15' : ($rank ==  1 ? '1' : ($rank == 2 ? '05' : '05')) ?>"><?= $program->votesByGender->get($gender) ?? 0 ?></td>
+                <?php } ?>
+                <?php foreach ($villages as $village) { ?>
+                    <td class="text-end <?= $rank >= 3 ? 'text-opacity-75' : 'bg-warning' ?><?= $rank + 1 === $subcategory->programs()->count() ? '' : '' ?>" style="--bs-bg-opacity: .<?= $rank == 0 ? '15' : ($rank ==  1 ? '1' : ($rank == 2 ? '05' : '05')) ?>"><?= $program->votesByDusun->get($village->name) ?? 0 ?></td>
+                <?php } ?>
+            </tr>
+        <?php } ?>
+    <?php } ?>
+<?php } ?>
+
+<?php if ($categories->isEmpty()) { ?>
+    <tr class="no-data">
+        <td colspan="100" class="nolink">
+            <p class="no-data">
+                <?= e(trans('voices4budget.contents::lang.entity.voteresult.messages.no_data')) ?>
+            </p>
+        </td>
+    </tr>
+<?php } ?>

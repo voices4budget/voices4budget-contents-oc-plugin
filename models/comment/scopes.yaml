@@ -1,0 +1,25 @@
+scopes:
+    country:
+        type: dropdown
+        emptyOption: "- Select country -"
+        conditions: country_id = (:value)
+        modelScope: applyCountryFilter
+        options: getCountryOptions
+    voting_session:
+        type: dropdown
+        emptyOption: "- Select Voting Session -"
+        conditions: voting_session_id = (:value)
+        dependsOn: country
+        options: getVotingSessionOptions
+    _category:
+        type: dropdown
+        emptyOption: "-- Select category --"
+        options: getCategoryOptions
+        dependsOn: voting_session
+        modelScope: applyCategoryFilter
+    program:
+        type: dropdown
+        emptyOption: "-- Select program --"
+        options: getProgramOptions
+        conditions: program_id = (:value)
+        dependsOn: _category

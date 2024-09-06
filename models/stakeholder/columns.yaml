@@ -1,0 +1,26 @@
+columns:
+    name:
+        label: 'voices4budget.contents::lang.entity.stakeholder.attributes.name'
+        type: text
+        searchable: true
+        sortable: true
+    role:
+        label: 'voices4budget.contents::lang.entity.stakeholder.attributes.role'
+        type: text
+        searchable: true
+        sortable: true
+    country_id:
+        label: 'voices4budget.contents::lang.entity.country.singular'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: country
+    created_at:
+        label: 'voices4budget.contents::lang.entity.stakeholder.attributes.added_at'
+        type: datetime
+        sortable: true
+    updated_at:
+        label: 'voices4budget.contents::lang.entity.stakeholder.attributes.updated_at'
+        type: datetime
+        sortable: true

@@ -70,13 +70,70 @@ class Category extends Model
             'votes' => function($q) use ($voting_session_id, $area_id) {
                 $q->where('voting_session_id', $voting_session_id);
             }
-        ])->orderBy('votes_count', 'desc');
+        ])
+            ->orderBy('votes_count', 'desc');
 
         if ($count) {
             $query->take($count);
         }
 
-        return $query->get();
+        $programs = $query->get();
+
+        $dusun = Area::where('area_type_id', 'dusun')
+            ->get();
+
+        foreach ($programs as $program) {
+            $program->votesByAge = Vote::with('user')->where('voting_session_id', $voting_session_id)
+                ->where('program_id',$program->id)
+                ->get()
+                ->groupBy('user.data.age')
+                ->mapWithKeys(function($item, $key) {
+                    return [$key => count($item)];
+                });
+            
+            $program->votesByGender = Vote::with('user')->where('voting_session_id', $voting_session_id)
+                ->where('program_id',$program->id)
+                ->get()
+                ->groupBy('user.data.gender')
+                ->mapWithKeys(function($item, $key) {
+                    return [$key => count($item)];
+                });
+
+
+            $program->votesByDusun = Vote::with('user')->where('voting_session_id', $voting_session_id)
+                ->where('program_id',$program->id)
+                ->get()
+                ->groupBy('user.data.area-dusun')
+                ->mapWithKeys(function($item, $key) use ($dusun) {
+                    return [$dusun->where('id', $key)->first()->name => count($item)];
+                });
+
+                // dd($program->votesByDusun);
+        }
+
+        return $programs;
+    }
+
+    public function getCountryOptions() {
+        return Country::lists('name', 'id');
+    }
+
+    public function getVotingSessionsOptions($scopes = null) {
+        $scopeName = post('scopeName');
+        $country = post('value');
+
+        if ($scopeName == 'country' && $country) {
+            return VotingSession::where('country_id', $country)->lists('name', 'id');
+        }
+        else {
+            return VotingSession::lists('name', 'id');
+        }
+    }
+
+    public function scopeApplyVotingSessionFilter($query, $scope) {
+        $query->whereHas('voting_sessions', function($q) use ($scope) {
+            $q->where('voices4budget_contents_voting_sessions.id', $scope->value);
+        });
     }
 
 }

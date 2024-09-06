@@ -1,0 +1,11 @@
+<label><?= e(trans('voices4budget.contents::lang.entity.votingsession.singular')) ?></label>
+<select class="form-control custom-select" name="session_id" data-request="onChangeSession"
+    data-request-update="{'categories': '#resultRows' }"
+    data-request-success="$('#toggleCollapse').prop('disabled', false)">
+    <option value="">-- <?= e(trans('voices4budget.contents::lang.entity.voteresult.messages.choose_voting_session')) ?> --</option>
+    <?php foreach ($votingSessions as $session) { ?>
+    <option value="<?= $session->id ?>">
+        <?= $session->name ?>
+    </option>
+    <?php } ?>
+</select>

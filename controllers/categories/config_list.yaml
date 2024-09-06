@@ -10,6 +10,7 @@ toolbar:
     search:
         prompt: 'backend::lang.list.search_prompt'
 recordUrl: 'voices4budget/contents/categories/update/:id'
+filter: $/voices4budget/contents/models/category/scopes.yaml
 structure:
   showReorder: true
   dragRow: true

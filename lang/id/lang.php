@@ -43,11 +43,15 @@
         'voteresults' => [
             'read' => 'View vote results',
         ],
+        'stakeholders' => [
+            'read' => 'View stakeholders',
+            'write' => 'Manage stakeholders',
+        ],
     ],
     'entity' => [
         'country' => [
             'plural' => 'Countries',
-            'singular' => 'Country',
+            'singular' => 'Negara',
             'attributes' => [
                 'is_default' => 'Default country',
             ],
@@ -76,8 +80,8 @@
                 'parent' => 'Parent category',
                 'max_vote' => 'Maximum vote',
             ],
-            'plural' => 'Categories',
-            'singular' => 'Category',
+            'plural' => 'Kategori',
+            'singular' => 'Kategori',
         ],
         'program' => [
             'singular' => 'Program',
@@ -96,7 +100,6 @@
                 'parent' => 'Parent',
             ],
             'plural' => 'Areas',
-            'singular' => 'Area'
         ],
         'votingsession' => [
             'attributes' => [
@@ -106,8 +109,8 @@
                 'ends_at' => 'Ends at',
                 'is_active' => 'Active session',
             ],
-            'plural' => 'Voting sessions',
-            'singular' => 'Voting session',
+            'plural' => 'Sesi voting',
+            'singular' => 'Sesi voting',
             'comments' => [
                 'is_active' => 'Making this session as active session means deactivating the current active session',
             ],
@@ -152,42 +155,40 @@
             ],
         ],
         'stakeholder' => [
-            'plural' => 'Stakeholders',
             'attributes' => [
                 'name' => 'Name',
                 'role' => 'Role',
                 'added_at' => 'Added at',
                 'updated_at' => 'Updated at',
             ],
-            'singular' => 'Stakeholder',
+            'plural' => 'Stakeholders',
         ],
         'voteresult' => [
-            'plural' => 'Vote results',
             'attributes' => [
-                'rank' => 'Rank',
-                'total_votes' => 'Total votes',
-                'voting_period' => 'Voting period'
+                'rank' => 'Urutan',
+                'total_votes' => 'Total suara',
+                'voting_period' => 'Tanggal pemungutan suara'
             ],
             'messages' => [
-                'no_data' => 'Choose country and voting session first',
-                'choose_country' => 'Choose country',
-                'choose_voting_session' => 'Choose voting session',
+                'no_data' => 'Pilih negara dan sesi voting terlebih dahulu',
+                'choose_country' => 'Pilih negara',
+                'choose_voting_session' => 'Pilih sesi voting',
             ],
             'actions' => [
-                'print' => 'Print',
+                'print' => 'Cetak',
             ],
         ],
         'user' => [
             'attributes' => [
                 'gender' => [
-                    'label' => 'Gender',
-                    'male' => 'Male',
-                    'female' => 'Female',
-                    'others' => 'Others',
+                    'label' => 'Jenis Kelamin',
+                    'male' => 'Laki-laki',
+                    'female' => 'Perempuan',
+                    'others' => 'Lainnya',
                 ],
                 'age' => [
-                    'label' => 'Age',
-                    'others' => 'Others',
+                    'label' => 'Usia',
+                    'others' => 'Lainnya',
                 ],
             ],
         ],

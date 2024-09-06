@@ -1,4 +1,4 @@
-name: Areas
+name: 'voices4budget.contents::lang.entity.area.singular'
 form: $/voices4budget/contents/models/area/fields.yaml
 modelClass: Voices4budget\Contents\Models\Area
 defaultRedirect: voices4budget/contents/areas

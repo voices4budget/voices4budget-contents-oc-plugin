@@ -32,6 +32,10 @@ class VotingSession extends Model
         'categories' => [Category::class, 'table' => 'voices4budget_contents_voting_sessions_categories']
     ];
 
+    public $belongsTo = [
+        'country' => [Country::class]
+    ];
+
     public function hasEnded() {
         return Carbon::now()->gte($this->ends_at);
     }

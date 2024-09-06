@@ -10,6 +10,7 @@ toolbar:
     search:
         prompt: 'backend::lang.list.search_prompt'
 recordUrl: 'voices4budget/contents/areatypes/update/:id'
+filter: $/voices4budget/contents/models/areatype/scopes.yaml
 structure:
     showTree: true
     showSorting: false

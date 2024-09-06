@@ -1,0 +1,11 @@
+name: Stakeholders
+modelClass: Voices4budget\Contents\Models\Stakeholder
+form: $/voices4budget/contents/models/stakeholder/fields.yaml
+defaultRedirect: voices4budget/contents/stakeholders
+create:
+    redirect: 'voices4budget/contents/stakeholders/update/:id'
+    redirectClose: voices4budget/contents/stakeholders
+update:
+    redirect: voices4budget/contents/stakeholders
+    redirectClose: voices4budget/contents/stakeholders
+preview: {  }

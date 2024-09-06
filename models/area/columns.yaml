@@ -11,3 +11,10 @@ columns:
         sortable: true
         select: name
         relation: area_type
+    country_id:
+        label: 'voices4budget.contents::lang.entity.country.singular'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: country

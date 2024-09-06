@@ -12,6 +12,12 @@ class AreaType extends Model
     use \October\Rain\Database\Traits\SimpleTree;
     use \October\Rain\Database\Traits\SoftDelete;
 
+    public $implement = [
+        \RainLab\Translate\Behaviors\TranslatableModel::class
+    ];
+
+    public $translatable = ['name', 'description'];
+
     /**
      * @var array dates to cast from the database.
      */

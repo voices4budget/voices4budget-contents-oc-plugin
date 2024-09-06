@@ -1,0 +1,14 @@
+scopes:
+    country:
+        type: dropdown
+        emptyOption: '- Select country -'
+        options: getCountryOptions
+        conditions: country_id = (:value)
+    voting_sessions:
+        type: dropdown
+        emptyOption: '- Select Voting Session -'
+        conditions: voting_session_id = (:value)
+        modelClass: Voices4budget\Contents\Models\Category
+        options: getVotingSessionsOptions
+        dependsOn: country
+        modelScope: applyVotingSessionFilter
