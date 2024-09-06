@@ -20,10 +20,10 @@ fields:
         size: large
         span: full
         required: true
-        type: textarea
+        type: richeditor
     goal:
         label: 'voices4budget.contents::lang.entity.program.attributes.goal'
         size: large
         span: full
         required: true
-        type: textarea
+        type: richeditor

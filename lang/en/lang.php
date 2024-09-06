@@ -43,6 +43,10 @@
         'voteresults' => [
             'read' => 'View vote results',
         ],
+        'stakeholders' => [
+            'read' => 'View stakeholders',
+            'write' => 'Manage stakeholders',
+        ],
     ],
     'entity' => [
         'country' => [

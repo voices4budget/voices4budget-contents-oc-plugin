@@ -40,7 +40,7 @@ class VoteResults extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Voices4Budget.Contents', 'voting', 'vote-results');
+        BackendMenu::setContext('Voices4budget.Contents', 'voting', 'vote-results');
         
     }
 

@@ -18,6 +18,7 @@ columns:
         relation: voting_sessions
     goal:
         label: 'voices4budget.contents::lang.entity.program.attributes.goal'
-        type: text
+        type: summary
+        limitChars: 100
         searchable: true
         sortable: true

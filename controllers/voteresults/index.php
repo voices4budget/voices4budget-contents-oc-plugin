@@ -11,6 +11,10 @@
             top: 0;
             font-family: Arial, Helvetica, sans-serif;
 
+            #letterHead {
+                display: block !important;
+            }
+
             #resultHeader table {
                 border: 0px solid #000 !important;
             }
@@ -23,6 +27,10 @@
                 color: #000;
                 border: 1px solid #000 !important;
                 word-wrap: break-word;
+            }
+            
+            #signature_section {
+                display: block !important;
             }
 
             .stakeholder {
@@ -68,6 +76,15 @@
 <hr class="mb-4" />
 
 <div id="printable">
+    <div id="letterHead" class="text-center mb-5" style="display: none;">
+        <img src="/themes/voices4budget/assets/img/logo.svg" />
+        <p class="fw-bold fst-italic">"Digital Empowerment about Village Fund in Indonesia and Thailand"</p>
+        <p class="fst-italic">
+            <span class="me-3">Instagram : <a href="https://instagram.com/voices4budget" target="_blank">@voices4budget</a></span>
+            <span class="me-3">Email : <a href="mailto:media@voices4budget.org" target="_blank">media@voices4budget.org</a></span>
+            <span>Website: <a href="https://voices4budget.org">voices4budget.org</a></span>
+        </p>
+    </div>
     <div id="resultHeader" class="mb-5">
 
     </div>
@@ -80,8 +97,8 @@
                     <th class="p-3 border-start border-end" rowspan="2" valign="middle"><?= e(trans('voices4budget.contents::lang.entity.voteresult.attributes.rank')) ?></th>
                     <th class="p-3 border-start border-end" rowspan="2" valign="middle"><?= e(trans('voices4budget.contents::lang.entity.program.singular')) ?></th>
                     <th class="p-3 border-start border-end" rowspan="2" valign="middle"><?= e(trans('voices4budget.contents::lang.entity.voteresult.attributes.total_votes')) ?></th>
-                    <th class="p-3 border-start border-end text-center" colspan="<?= count($age_ranges) ?>"><?= e(trans('voices4budget.contents::lang.entity.user.attributes.gender.label')) ?></th>
-                    <th class="p-3 border-start border-end text-center" colspan="<?= count($genders) ?>"><?= e(trans('voices4budget.contents::lang.entity.user.attributes.age.label')) ?></th>
+                    <th class="p-3 border-start border-end text-center" colspan="<?= count($age_ranges) ?>"><?= e(trans('voices4budget.contents::lang.entity.user.attributes.age.label')) ?></th>
+                    <th class="p-3 border-start border-end text-center" colspan="<?= count($genders) ?>"><?= e(trans('voices4budget.contents::lang.entity.user.attributes.gender.label')) ?></th>
                     <th class="p-3 border-start border-end text-center" colspan="<?= count($villages) ?>"><?= $areaType->name ?></th>
                 </tr>
                 <tr>
@@ -108,7 +125,7 @@
         </table>
     </div>
 
-    <div id="signature_section" class="my-5 container-fluid">
+    <div id="signature_section" class="my-5 container-fluid" style="display: none;">
         
     </div>
 </div>

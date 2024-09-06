@@ -105,7 +105,7 @@ class Category extends Model
                 ->get()
                 ->groupBy('user.data.area-dusun')
                 ->mapWithKeys(function($item, $key) use ($dusun) {
-                    return [$dusun->where('id', $key)->first()->name => count($item)];
+                    return [$dusun->where('id', $key)->first()->name ?? 'others' => count($item)];
                 });
 
                 // dd($program->votesByDusun);

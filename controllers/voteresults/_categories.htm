@@ -14,8 +14,8 @@
                 <?php foreach ($age_ranges as $range) { ?>
                     <td class="text-end <?= $rank >= 3 ? 'text-opacity-75' : 'bg-warning' ?><?= $rank + 1 === $subcategory->programs()->count() ? '' : '' ?>" style="--bs-bg-opacity: .<?= $rank == 0 ? '15' : ($rank ==  1 ? '1' : ($rank == 2 ? '05' : '05')) ?>"><?= $program->votesByAge->get($range) ?? 0 ?></td>
                 <?php } ?>
-                <?php foreach ($genders as $gender) { ?>
-                    <td class="text-end <?= $rank >= 3 ? 'text-opacity-75' : 'bg-warning' ?><?= $rank + 1 === $subcategory->programs()->count() ? '' : '' ?>" style="--bs-bg-opacity: .<?= $rank == 0 ? '15' : ($rank ==  1 ? '1' : ($rank == 2 ? '05' : '05')) ?>"><?= $program->votesByGender->get($gender) ?? 0 ?></td>
+                <?php foreach ($genders as $key => $gender) { ?>
+                    <td class="text-end <?= $rank >= 3 ? 'text-opacity-75' : 'bg-warning' ?><?= $rank + 1 === $subcategory->programs()->count() ? '' : '' ?>" style="--bs-bg-opacity: .<?= $rank == 0 ? '15' : ($rank ==  1 ? '1' : ($rank == 2 ? '05' : '05')) ?>"><?= $program->votesByGender->get($key) ?? 0 ?></td>
                 <?php } ?>
                 <?php foreach ($villages as $village) { ?>
                     <td class="text-end <?= $rank >= 3 ? 'text-opacity-75' : 'bg-warning' ?><?= $rank + 1 === $subcategory->programs()->count() ? '' : '' ?>" style="--bs-bg-opacity: .<?= $rank == 0 ? '15' : ($rank ==  1 ? '1' : ($rank == 2 ? '05' : '05')) ?>"><?= $program->votesByDusun->get($village->name) ?? 0 ?></td>

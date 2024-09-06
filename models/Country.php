@@ -34,6 +34,7 @@ class Country extends Model
 
     public $hasMany = [
         'areas' => [Area::class],
+        'area_types' => [AreaType::class],
         'stakeholders' => [Stakeholder::class]
     ];
 

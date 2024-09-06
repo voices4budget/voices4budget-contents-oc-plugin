@@ -1,169 +1,173 @@
 <?php return [
     'plugin' => [
-        'name' => 'Voices4Budget Contents',
+        'name' => 'Konten Voices4Budget',
         'description' => '',
     ],
     'permissions' => [
         'countries' => [
-            'read' => 'View countries',
-            'write' => 'Manage countries',
+            'read' => 'Lihat negara',
+            'write' => 'Manage negara',
         ],
         'areatypes' => [
-            'read' => 'View area types',
-            'write' => 'Manage area types',
+            'read' => 'Lihat tipe area',
+            'write' => 'Manage tipe area',
         ],
         'programs' => [
-            'read' => 'View programs',
-            'write' => 'Manage programs',
+            'read' => 'Lihat program',
+            'write' => 'Manage program',
         ],
         'subprograms' => [
-            'read' => 'View subprograms',
-            'write' => 'Manage subprograms',
+            'read' => 'Lihat sub-kategori',
+            'write' => 'Manage sub-kategori',
         ],
         'areas' => [
-            'read' => 'View areas',
-            'write' => 'Manage areas',
+            'read' => 'Lihat area',
+            'write' => 'Manage area',
         ],
         'votingsessions' => [
-            'read' => 'View voting sessions',
-            'write' => 'Manage voting sessions',
+            'read' => 'Lihat sesi voting',
+            'write' => 'Manage sesi voting',
         ],
         'comments' => [
-            'read' => 'View comments',
-            'write' => 'Manage comments',
+            'read' => 'Lihat komentar',
+            'write' => 'Manage komentar',
         ],
         'ideas' => [
-            'read' => 'View ideas',
-            'write' => 'Manage ideas',
+            'read' => 'Lihat ide',
+            'write' => 'Manage ide',
         ],
         'votes' => [
-            'read' => 'View votes',
-            'write' => 'Manage votes',
+            'read' => 'Lihat vote',
+            'write' => 'Manage vote',
         ],
         'voteresults' => [
-            'read' => 'View vote results',
+            'read' => 'Lihat hasil pemungutan suara',
         ],
         'stakeholders' => [
-            'read' => 'View stakeholders',
-            'write' => 'Manage stakeholders',
+            'read' => 'Lihat stakeholder',
+            'write' => 'Manage stakeholder',
         ],
     ],
     'entity' => [
         'country' => [
-            'plural' => 'Countries',
+            'plural' => 'Negara',
             'singular' => 'Negara',
             'attributes' => [
-                'is_default' => 'Default country',
+                'is_default' => 'Negara default',
             ],
             'comments' => [
-                'is_default' => 'Voters will be assigned to this country if the country he is accessing the website from is not registered in this app',
+                'is_default' => 'Voter akan dihubungan dengan negara ini jika voter mengakses website dari negara yang tidak terdaftar pada sistem.',
             ],
         ],
         'areatype' => [
-            'plural' => 'Area types',
+            'plural' => 'Jenis Area',
             'attributes' => [
-                'name' => 'Name',
+                'name' => 'Nama',
                 'id' => 'ID',
-                'description' => 'Description',
-                'parent' => 'Parent',
+                'description' => 'Deskripsi',
+                'parent' => 'Induk',
             ],
-            'singular' => 'Area type',
+            'singular' => 'Jenis Area',
         ],
         'administrativearea' => [
-            'plural' => 'Administrative areas',
+            'plural' => 'Area administratif',
         ],
         'category' => [
             'attributes' => [
-                'title' => 'Title',
+                'title' => 'Judul',
                 'slug' => 'Slug',
-                'description' => 'Description',
-                'parent' => 'Parent category',
-                'max_vote' => 'Maximum vote',
+                'description' => 'Deskripsi',
+                'parent' => 'Kategori Induk',
+                'max_vote' => 'Vote maksimum',
             ],
             'plural' => 'Kategori',
             'singular' => 'Kategori',
         ],
         'program' => [
             'singular' => 'Program',
-            'plural' => 'Programs',
+            'plural' => 'Program',
             'attributes' => [
-                'title' => 'Title',
+                'title' => 'Judul',
                 'slug' => 'Slug',
-                'description' => 'Description',
-                'goal' => 'Goal',
-                'letter_index' => 'Letter Index',
+                'description' => 'Deskripsi',
+                'goal' => 'Tujuan',
+                'letter_index' => 'Indeks Huruf',
             ],
         ],
         'area' => [
             'attributes' => [
-                'name' => 'Name',
-                'parent' => 'Parent',
+                'name' => 'Nama',
+                'parent' => 'Area Induk',
             ],
-            'plural' => 'Areas',
+            'plural' => 'Area',
+            'singular' => 'Area',
         ],
         'votingsession' => [
             'attributes' => [
                 'name' => 'Name',
-                'description' => 'Description',
-                'starts_at' => 'Starts at',
-                'ends_at' => 'Ends at',
-                'is_active' => 'Active session',
+                'description' => 'Deskripsi',
+                'starts_at' => 'Dimulai pada',
+                'ends_at' => 'Selesai pada',
+                'is_active' => 'Sesi aktif',
             ],
             'plural' => 'Sesi voting',
             'singular' => 'Sesi voting',
             'comments' => [
-                'is_active' => 'Making this session as active session means deactivating the current active session',
+                'is_active' => 'Mengaktifkan sesi ini berarti menonaktifkan sesi aktif saat ini',
             ],
         ],
         'comment' => [
             'attributes' => [
-                'user' => 'User',
+                'user' => 'Voter',
                 'program' => 'Program',
-                'comment' => 'Comment',
-                'created_at' => 'Added at',
-                'updated_at' => 'Updated at',
+                'comment' => 'Komentar',
+                'created_at' => 'Ditambahkan pada',
+                'updated_at' => 'Diubah pada',
             ],
-            'plural' => 'Comments',
+            'plural' => 'Komentar',
             'messages' => [
-                'deleted' => 'Your comment has been removed. You can now add a new comment.',
+                'deleted' => 'Komentar anda telah dihapus. Anda dapat menambahkan komentar baru.',
             ],
         ],
         'idea' => [
-            'plural' => 'Ideas',
+            'plural' => 'Ide',
             'attributes' => [
-                'user' => 'User',
-                'description' => 'Description',
-                'created_at' => 'Added at',
-                'updated_at' => 'Updated at',
+                'user' => 'Voter',
+                'description' => 'Deskripsi',
+                'created_at' => 'Ditambahkan pada',
+                'updated_at' => 'Diubah pada',
             ],
             'messages' => [
                 'validations' => [
-                    'description.required' => 'Please fill in your idea first.',
+                    'description.required' => 'Mohon isi ide Anda terlebih dahulu.',
                 ],
             ],
         ],
         'vote' => [
-            'plural' => 'Votes',
+            'plural' => 'Suara',
             'attributes' => [
-                'user' => 'User',
-                'created_at' => 'Voted at',
+                'user' => 'Voter',
+                'created_at' => 'Dikirim pada',
             ],
             'messages' => [
                 'validations' => [
-                    'select_programs_first' => 'Please vote the programs first.',
+                    'select_programs_first' => 'Mohon pilih program terlebih dahulu.',
                 ],
             ],
         ],
         'stakeholder' => [
+            'plural' => 'Stakeholder',
             'attributes' => [
-                'name' => 'Name',
-                'role' => 'Role',
-                'added_at' => 'Added at',
-                'updated_at' => 'Updated at',
+                'name' => 'Nama',
+                'role' => 'Jabatan/Peran',
+                'added_at' => 'Ditambahkan pada',
+                'updated_at' => 'Diubah pada',
             ],
-            'plural' => 'Stakeholders',
+            'singular' => 'Stakeholder',
+            
         ],
         'voteresult' => [
+            'plural' => 'Hasil vote',
             'attributes' => [
                 'rank' => 'Urutan',
                 'total_votes' => 'Total suara',
@@ -195,19 +199,19 @@
     ],
     'menu' => [
         'voting' => 'Voting',
-        'locations' => 'Locations',
-        'vote_results' => 'Vote Results',
+        'locations' => 'Lokasi',
+        'vote_results' => 'Hasil Vote',
     ],
     'settings' => [
         'tab' => [
-            'general' => 'General',
-            'misc' => 'Miscellaneous',
+            'general' => 'Umum',
+            'misc' => 'Lain-lain',
         ],
         'sections' => [
         ],
         'attributes' => [
             'general' => [
-                'title' => 'Title',
+                'title' => 'Judul',
                 'slogan' => 'Slogan',
             ],
             'misc' => [

@@ -80,6 +80,24 @@ class ExtendUserPlugin
                     });
                 }
             });
+
+            $model->addDynamicMethod('hasCompletedProfile', function() use($model) {
+                $country = Country::find($model->data['country'] ?? 'ID');
+
+                $required_data = ['country', 'age', 'gender'];
+
+                foreach ($country->area_types as $area_type) {
+                    $required_data[] = 'area-'.$area_type->id;
+                }
+
+                foreach($required_data as $req) {
+                    if (!isset($model->data[$req]) or !$model->data[$req]) {
+                        return false;
+                    }
+                }
+
+                return true;
+            });
         });
     }
 
