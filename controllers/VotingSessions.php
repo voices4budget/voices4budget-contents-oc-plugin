@@ -6,6 +6,10 @@ use Backend\Classes\Controller;
 
 class VotingSessions extends Controller
 {
+    use WritePermissionHandler;
+
+    public $entity_code = 'votingsessions';
+
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class

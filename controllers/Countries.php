@@ -6,6 +6,10 @@ use Backend\Classes\Controller;
 
 class Countries extends Controller
 {
+    use WritePermissionHandler;
+
+    public $entity_code = 'countries';
+
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class

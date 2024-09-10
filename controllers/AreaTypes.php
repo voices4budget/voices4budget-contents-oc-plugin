@@ -1,11 +1,14 @@
 <?php namespace Voices4budget\Contents\Controllers;
 
-use Backend;
 use BackendMenu;
 use Backend\Classes\Controller;
 
 class AreaTypes extends Controller
 {
+    use WritePermissionHandler;
+
+    public $entity_code = 'areatypes';
+
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class

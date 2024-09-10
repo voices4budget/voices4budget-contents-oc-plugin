@@ -6,46 +6,50 @@
     'permissions' => [
         'countries' => [
             'read' => 'Lihat negara',
-            'write' => 'Manage negara',
+            'write' => 'Tambah, ubah dan hapus negara',
         ],
         'areatypes' => [
             'read' => 'Lihat tipe area',
-            'write' => 'Manage tipe area',
+            'write' => 'Tambah, ubah dan hapus tipe area',
+        ],
+        'categories' => [
+            'read' => 'LLihat categories',
+            'write' => 'Tambah, ubah dan hapus categories',
         ],
         'programs' => [
             'read' => 'Lihat program',
-            'write' => 'Manage program',
+            'write' => 'Tambah, ubah dan hapus program',
         ],
         'subprograms' => [
             'read' => 'Lihat sub-kategori',
-            'write' => 'Manage sub-kategori',
+            'write' => 'Tambah, ubah dan hapus sub-kategori',
         ],
         'areas' => [
             'read' => 'Lihat area',
-            'write' => 'Manage area',
+            'write' => 'Tambah, ubah dan hapus area',
         ],
         'votingsessions' => [
             'read' => 'Lihat sesi voting',
-            'write' => 'Manage sesi voting',
+            'write' => 'Tambah, ubah dan hapus sesi voting',
         ],
         'comments' => [
             'read' => 'Lihat komentar',
-            'write' => 'Manage komentar',
+            'write' => 'Tambah, ubah dan hapus komentar',
         ],
         'ideas' => [
             'read' => 'Lihat ide',
-            'write' => 'Manage ide',
+            'write' => 'Tambah, ubah dan hapus ide',
         ],
         'votes' => [
             'read' => 'Lihat vote',
-            'write' => 'Manage vote',
+            'write' => 'Tambah, ubah dan hapus vote',
         ],
         'voteresults' => [
             'read' => 'Lihat hasil pemungutan suara',
         ],
         'stakeholders' => [
             'read' => 'Lihat stakeholder',
-            'write' => 'Manage stakeholder',
+            'write' => 'Tambah, ubah dan hapus stakeholder',
         ],
     ],
     'entity' => [

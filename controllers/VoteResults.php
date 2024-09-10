@@ -18,11 +18,6 @@ use Voices4budget\Contents\Models\VotingSession;
  */
 class VoteResults extends Controller
 {
-    public $implement = [
-        // \Backend\Behaviors\FormController::class,
-        // \Backend\Behaviors\ListController::class,
-    ];
-
     public $requiredPermissions = [
         'voices4budget.voteresults.read' 
     ];

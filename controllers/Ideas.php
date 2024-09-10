@@ -6,6 +6,10 @@ use Backend\Classes\Controller;
 
 class Ideas extends Controller
 {
+    use WritePermissionHandler;
+
+    public $entity_code = 'ideas';
+    
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class

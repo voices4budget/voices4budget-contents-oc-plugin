@@ -6,6 +6,10 @@ use Backend\Classes\Controller;
 
 class Categories extends Controller
 {
+    use WritePermissionHandler;
+
+    public $entity_code = 'categories';
+
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class,

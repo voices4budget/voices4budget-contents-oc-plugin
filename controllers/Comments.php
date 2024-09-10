@@ -6,6 +6,10 @@ use Backend\Classes\Controller;
 
 class Comments extends Controller
 {
+    use WritePermissionHandler;
+
+    public $entity_code = 'comments';
+
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class

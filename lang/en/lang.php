@@ -12,6 +12,10 @@
             'read' => 'View area types',
             'write' => 'Manage area types',
         ],
+        'categories' => [
+            'read' => 'View categories',
+            'write' => 'Manage categories',
+        ],
         'programs' => [
             'read' => 'View programs',
             'write' => 'Manage programs',

@@ -3,15 +3,18 @@
 use Backend;
 use BackendMenu;
 use Backend\Classes\Controller;
+use BackendAuth;
 
 class Votes extends Controller
 {
+    use WritePermissionHandler;
+
+    public $entity_code = 'votes';
+
     public $implement = [
-        \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class
     ];
 
-    public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
 
     public $requiredPermissions = [
@@ -22,6 +25,21 @@ class Votes extends Controller
     {
         parent::__construct();
         BackendMenu::setContext('Voices4budget.Contents', 'voting', 'votes');
+    }
+    
+    public function listGetConfig($definition)
+    {
+        $config = $this->asExtension('ListController')->listGetConfig($definition);
+
+        $permissionGranted = BackendAuth::userHasAccess('utilities.logs');
+
+        if ($permissionGranted) {
+            $config->structure = [
+                'showCheckboxes' => true
+            ];
+        }
+
+        return $config;
     }
 
 }

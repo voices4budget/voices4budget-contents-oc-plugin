@@ -3,11 +3,11 @@ modelClass: Voices4budget\Contents\Models\Vote
 title: Votes
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
-showCheckboxes: true
+showCheckboxes: false
+showTree: false
 recordsPerPage: 20
 toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
-recordUrl: 'voices4budget/contents/votes/update/:id'
 filter: $/voices4budget/contents/models/vote/scopes.yaml

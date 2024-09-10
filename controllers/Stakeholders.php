@@ -6,6 +6,10 @@ use Backend\Classes\Controller;
 
 class Stakeholders extends Controller
 {
+    use WritePermissionHandler;
+
+    public $entity_code = 'stakeholders';
+
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class

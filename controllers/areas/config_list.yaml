@@ -16,3 +16,5 @@ structure:
     showSorting: false
     maxDepth: 4
     treeExpanded: false
+requiredPermissions:
+    recordDelete: 'voices4budget.contents.write'

@@ -11,3 +11,5 @@ toolbar:
         prompt: 'backend::lang.list.search_prompt'
 recordUrl: 'voices4budget/contents/ideas/update/:id'
 filter: $/voices4budget/contents/models/idea/scopes.yaml
+structure:
+    showTree: false
