@@ -8,3 +8,7 @@ create:
 update:
     redirect: voices4budget/contents/categories
     redirectClose: voices4budget/contents/categories
+permissions:
+    modelCreate: 'voices4budget.categories.write'
+    modelUpdate: 'voices4budget.categories.write'
+    modelDelete: 'voices4budget.categories.write'

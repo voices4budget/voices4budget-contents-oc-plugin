@@ -8,3 +8,7 @@ create:
 update:
     redirect: voices4budget/contents/countries
     redirectClose: voices4budget/contents/countries
+permissions:
+    modelCreate: 'voices4budget.countries.write'
+    modelUpdate: 'voices4budget.countries.write'
+    modelDelete: 'voices4budget.countries.write'

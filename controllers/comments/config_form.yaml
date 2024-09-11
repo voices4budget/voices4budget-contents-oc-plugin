@@ -8,3 +8,7 @@ create:
 update:
     redirect: voices4budget/contents/comments
     redirectClose: voices4budget/contents/comments
+permissions:
+    modelCreate: 'voices4budget.comments.write'
+    modelUpdate: 'voices4budget.comments.write'
+    modelDelete: 'voices4budget.comments.write'

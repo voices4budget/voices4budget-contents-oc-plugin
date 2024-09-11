@@ -9,3 +9,7 @@ update:
     redirect: voices4budget/contents/stakeholders
     redirectClose: voices4budget/contents/stakeholders
 preview: {  }
+permissions:
+    modelCreate: 'voices4budget.stakeholders.write'
+    modelUpdate: 'voices4budget.stakeholders.write'
+    modelDelete: 'voices4budget.stakeholders.write'

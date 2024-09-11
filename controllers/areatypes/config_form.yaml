@@ -8,3 +8,7 @@ create:
 update:
     redirect: voices4budget/contents/areatypes
     redirectClose: voices4budget/contents/areatypes
+permissions:
+    modelCreate: 'voices4budget.areatypes.write'
+    modelUpdate: 'voices4budget.areatypes.write'
+    modelDelete: 'voices4budget.areatypes.write'
