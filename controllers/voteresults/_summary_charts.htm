@@ -1,0 +1,53 @@
+<style>
+    .chart-legend {
+        height: auto !important;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h5 class="text-center mb-4"><?= e(trans('voices4budget.contents::lang.entity.voteresult.messages.voters_by.age')) ?></h5>
+            <div
+                class="control-chart centered wrap-legend"
+                data-control="chart-pie"
+                data-size="200"
+                data-center-text="<?= $voters['byAge']->sum() ?>"
+                >
+                <ul>
+                    <?php foreach ($age_ranges as $key => $range) { ?>
+                    <li><?= $range ?> <?= $key == 'others' ? '' : e(trans('voices4budget.contents::lang.entity.user.attributes.age.unit')) ?> <span><?= $voters['byAge'][$key] ?? 0 ?></span></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <h5 class="text-center mb-4"><?= e(trans('voices4budget.contents::lang.entity.voteresult.messages.voters_by.gender')) ?></h5>
+            <div
+                class="control-chart centered wrap-legend"
+                data-control="chart-pie"
+                data-size="200"
+                data-center-text="<?= $voters['byGender']->sum() ?>">
+                <ul>
+                    <?php foreach ($genders as $key => $gender) { ?>
+                    <li><?= $gender ?><span><?= $voters['byGender'][$key] ?? 0 ?></span></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <h5 class="text-center mb-4"><?= e(trans('voices4budget.contents::lang.entity.voteresult.messages.voters_by.area')) ?></h5>
+            <div
+                class="control-chart centered wrap-legend"
+                data-control="chart-pie"
+                data-size="200"
+                data-center-text="<?= $voters['byArea']->sum() ?>">
+                <ul>
+                    <?php foreach ($villages as $village) { ?>
+                    <li><?= $village->name ?><span><?= $voters['byArea'][$village->name] ?? 0 ?></span></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -113,6 +113,7 @@
                 'starts_at' => 'Dimulai pada',
                 'ends_at' => 'Selesai pada',
                 'is_active' => 'Sesi aktif',
+                'users_count' => 'Jumlah voter',
             ],
             'plural' => 'Sesi voting',
             'singular' => 'Sesi voting',
@@ -175,12 +176,18 @@
             'attributes' => [
                 'rank' => 'Urutan',
                 'total_votes' => 'Total suara',
-                'voting_period' => 'Tanggal pemungutan suara'
+                'voting_period' => 'Tanggal pemungutan suara',
+                'total_voters' => 'Jumlah voter'
             ],
             'messages' => [
                 'no_data' => 'Pilih negara dan sesi voting terlebih dahulu',
                 'choose_country' => 'Pilih negara',
                 'choose_voting_session' => 'Pilih sesi voting',
+                'voters_by' => [
+                    'age' => 'Voter berdasarkan rentang usia',
+                    'gender' => 'Voter berdasarkan jenis kelamin',
+                    'area' => 'Voter berdasarkan dusun'
+                ]
             ],
             'actions' => [
                 'print' => 'Cetak',
@@ -197,6 +204,7 @@
                 'age' => [
                     'label' => 'Usia',
                     'others' => 'Lainnya',
+                    'unit' => 'tahun'
                 ],
             ],
         ],

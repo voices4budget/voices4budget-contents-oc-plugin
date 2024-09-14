@@ -2,6 +2,8 @@
     @media print {
         body {
             visibility: hidden;
+            -webkit-print-color-adjust:exact !important;
+            print-color-adjust:exact !important;
         }
 
         #printable {
@@ -22,13 +24,14 @@
             #resultHeader td {
                 border: 0px solid #000 !important;
             }
-            
-            #resultBody th, #resultBody td {
+
+            #resultBody th,
+            #resultBody td {
                 color: #000;
                 border: 1px solid #000 !important;
                 word-wrap: break-word;
             }
-            
+
             #signature_section {
                 display: block !important;
             }
@@ -89,6 +92,10 @@
 
     </div>
 
+    <div id="summaryCharts" class="mb-5">
+
+    </div>
+
     <div class="control-list">
         <table id="resultBody" class="table table-bordered data">
             <thead>
@@ -117,7 +124,7 @@
                 <tr class="no-data">
                     <td colspan="100" class="nolink">
                         <p class="no-data">
-                        <?= e(trans('voices4budget.contents::lang.entity.voteresult.messages.no_data')) ?>
+                            <?= e(trans('voices4budget.contents::lang.entity.voteresult.messages.no_data')) ?>
                         </p>
                     </td>
                 </tr>
@@ -126,7 +133,6 @@
     </div>
 
     <div id="signature_section" class="my-5 container-fluid" style="display: none;">
-        
+
     </div>
 </div>
-

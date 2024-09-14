@@ -110,7 +110,9 @@ class CategoryDetail extends ComponentBase
                     'user_id' => $user->id,
                     'category_id' => post('category_id'),
                     'program_id' => $program_id,
-                    'voting_session_id' => VotingSession::where('is_active', 1)->first()->id
+                    'voting_session_id' => VotingSession::where('is_active', 1)
+                        ->where('country_id', $user->data['country'])
+                        ->first()->id
                 ]);
 
                 if ($vote->id) {
@@ -134,7 +136,8 @@ class CategoryDetail extends ComponentBase
         }
 
         return [
-            'success' => true
+            'success' => true,
+            'next_category' => $vote->category->nextCategory($vote->voting_session_id)->id ?? null
         ];
     }
 }

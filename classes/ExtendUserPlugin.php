@@ -50,6 +50,7 @@ class ExtendUserPlugin
             unset($model->rules['password']);
             $model->addJsonable('data');
             $model->belongsTo['area'] = [\Voices4budget\Contents\Models\Area::class];
+            $model->hasMany['votes'] = [\Voices4budget\Contents\Models\Vote::class];
             $model->addFillable(['data']);
 
             $model->addDynamicMethod('getDropdownOptions', function($fieldName, $value, $formData) use($model) {
@@ -97,6 +98,20 @@ class ExtendUserPlugin
                 }
 
                 return true;
+            });
+
+            $model->addDynamicMethod('getVotesByAttribute', function($voting_session_id, $attr_key) use($model) {
+                return $model->whereHas('votes', function($q) use ($voting_session_id) {
+                        $q->where('voting_session_id', $voting_session_id);
+                    })
+                    ->get()
+                    ->groupBy($attr_key)
+                    ->mapWithKeys(function($item, $key) use ($attr_key) {
+                        if (in_array($attr_key, ['data.age', 'data.gender'])) {
+                            return [$key => count($item)];
+                        }
+                        return [Area::where('id', $key)->first()->name ?? 'others' => count($item)];
+                    });
             });
         });
     }

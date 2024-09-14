@@ -174,12 +174,18 @@
             'attributes' => [
                 'rank' => 'Rank',
                 'total_votes' => 'Total votes',
-                'voting_period' => 'Voting period'
+                'voting_period' => 'Voting period',
+                'total_voters' => 'Number of voters'
             ],
             'messages' => [
                 'no_data' => 'Choose country and voting session first',
                 'choose_country' => 'Choose country',
                 'choose_voting_session' => 'Choose voting session',
+                'voters_by' => [
+                    'age' => 'Voter by age',
+                    'gender' => 'Voter by gender',
+                    'area' => 'Voters by village'
+                ]
             ],
             'actions' => [
                 'print' => 'Print',
@@ -196,6 +202,7 @@
                 'age' => [
                     'label' => 'Age',
                     'others' => 'Others',
+                    'unit' => 'years old'
                 ],
             ],
         ],

@@ -3,6 +3,7 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Carbon\Carbon;
+use RainLab\User\Models\User;
 use Voices4budget\Contents\Models\Area;
 use Voices4budget\Contents\Models\AreaType;
 use Voices4budget\Contents\Models\Category;
@@ -94,8 +95,17 @@ class VoteResults extends Controller
         $this->vars['voting_session'] = VotingSession::find($session_id);
         $this->vars['now'] = Carbon::now();
 
+        $this->vars['voters'] = [
+            'byAge' => User::getVotesByAttribute($session_id, 'data.age'),
+            'byGender' => User::getVotesByAttribute($session_id, 'data.gender'),
+            'byArea' => User::getVotesByAttribute($session_id, 'data.area-dusun')
+        ];
+
+        // dd($this->vars['voters']);
+
         return [
             '#resultHeader' => $this->makePartial('header'),
+            '#summaryCharts' => $this->makePartial('summary_charts'),
             '#resultRows' => $this->makePartial('categories'),
             '#signature_section' => $this->makePartial('signatures')
         ];

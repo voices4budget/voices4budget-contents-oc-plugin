@@ -30,6 +30,6 @@ class CategoriesList extends ComponentBase
         return Category::whereHas('voting_sessions', function($q) {
                 $q->where('is_active', 1);
             })
-            ->whereNull('parent_id')->get();
+            ->whereNull('parent_id')->orderBy('sort_order')->get();
     }
 }

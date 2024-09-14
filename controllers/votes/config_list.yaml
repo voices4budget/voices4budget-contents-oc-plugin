@@ -3,7 +3,7 @@ modelClass: Voices4budget\Contents\Models\Vote
 title: Votes
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
-showCheckboxes: false
+showCheckboxes: true
 showTree: false
 recordsPerPage: 20
 toolbar:
@@ -11,3 +11,5 @@ toolbar:
     search:
         prompt: 'backend::lang.list.search_prompt'
 filter: $/voices4budget/contents/models/vote/scopes.yaml
+requiredPermissions:
+    recordDelete: 'voices4budget.votes.write'

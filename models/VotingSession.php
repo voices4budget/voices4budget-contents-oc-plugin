@@ -3,6 +3,7 @@
 use Auth;
 use Carbon\Carbon;
 use Model;
+use RainLab\User\Models\User;
 
 /**
  * Model
@@ -29,7 +30,8 @@ class VotingSession extends Model
     ];
 
     public $belongsToMany = [
-        'categories' => [Category::class, 'table' => 'voices4budget_contents_voting_sessions_categories']
+        'categories' => [Category::class, 'table' => 'voices4budget_contents_voting_sessions_categories'],
+        'users' => [User::class, 'table' => 'voices4budget_contents_votes', 'scope' => 'distinct'],
     ];
 
     public $belongsTo = [

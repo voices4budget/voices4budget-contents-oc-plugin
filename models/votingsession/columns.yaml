@@ -21,6 +21,10 @@ columns:
         type: datetime
         searchable: false
         sortable: true
+    users_count:
+        label: 'voices4budget.contents::lang.entity.votingsession.attributes.users_count'
+        type: partial
+        path: 'users_count_column'
     is_active:
         label: 'voices4budget.contents::lang.entity.votingsession.attributes.is_active'
         type: switch

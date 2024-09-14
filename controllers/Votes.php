@@ -26,20 +26,5 @@ class Votes extends Controller
         parent::__construct();
         BackendMenu::setContext('Voices4budget.Contents', 'voting', 'votes');
     }
-    
-    public function listGetConfig($definition)
-    {
-        $config = $this->asExtension('ListController')->listGetConfig($definition);
-
-        $permissionGranted = BackendAuth::userHasAccess('utilities.logs');
-
-        if ($permissionGranted) {
-            $config->structure = [
-                'showCheckboxes' => true
-            ];
-        }
-
-        return $config;
-    }
 
 }

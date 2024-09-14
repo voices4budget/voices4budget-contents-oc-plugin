@@ -55,14 +55,30 @@ class Category extends Model
             ->count() > 0;
     }
 
+    public function areSubcategoriesVotedByCurrentUser() {
+        return $this->children()->votedByCurrentUser()->count() >= $this->children()->count();
+    }
+
     public function scopeVotedByCurrentUser($query) {
         $query->whereHas('votes', function($q) {
             $q->where('user_id', Auth::user()->id);
         });
     }
 
+    public function scopeNotVotedByCurrentUser($query) {
+        $query->whereDoesntHave('votes', function($q) {
+            $q->where('user_id', Auth::user()->id);
+        });
+    }
+
     public function scopeAreSubprograms($query) {
         $query->whereNotNull('parent_id');
+    }
+
+    public function scopeHasVotingSession($query, $id) {
+        $query->whereHas('voting_sessions', function($q) use ($id) {
+            $q->where('voting_session_id', $id);
+        });
     }
 
     public function rankedPrograms($voting_session_id, $count = null, $area_id = null) {
@@ -134,6 +150,21 @@ class Category extends Model
         $query->whereHas('voting_sessions', function($q) use ($scope) {
             $q->where('voices4budget_contents_voting_sessions.id', $scope->value);
         });
+    }
+    
+    public function nextCategory($voting_session_id) {
+        $parents = self::hasVotingSession($voting_session_id)
+            ->whereNull('parent_id')->get();
+
+        foreach ($parents as $parent) {
+            foreach ($parent->children()->hasVotingSession($voting_session_id)->get() as $child) {
+                if (!$child->isVotedByCurrentUser()) {
+                    return $child;
+                }
+            }
+        }
+
+        return null;
     }
 
 }
