@@ -51,6 +51,9 @@
             'read' => 'View stakeholders',
             'write' => 'Manage stakeholders',
         ],
+        'settings' => [
+            'write' => 'Manage settings',
+        ],
     ],
     'entity' => [
         'country' => [
@@ -113,6 +116,7 @@
                 'starts_at' => 'Starts at',
                 'ends_at' => 'Ends at',
                 'is_active' => 'Active session',
+                'users_count' => 'Total voters',
             ],
             'plural' => 'Voting sessions',
             'singular' => 'Voting session',
@@ -216,6 +220,7 @@
         'tab' => [
             'general' => 'General',
             'misc' => 'Miscellaneous',
+            'footer' => 'Footer'
         ],
         'sections' => [
         ],
@@ -223,10 +228,35 @@
             'general' => [
                 'title' => 'Title',
                 'slogan' => 'Slogan',
+                'about' => 'About Us',
+                'about_picture' => 'Picture (About Us)'
             ],
             'misc' => [
                 'google_client_id' => 'Google OAuth 2.0 Client ID',
             ],
+            'footer' => [
+                'socmed_accounts' => 'Social media accounts',
+                'socmed_accounts_attributes' => [
+                    'platform' => 'Platform',
+                    'name' => 'Name'
+                ],
+                'supporters' => 'Supporters',
+                'supporters_attributes' => [
+                    'logo' => 'Logo'
+                ],
+            ]
         ],
     ],
+    'general' => [
+        'internal_server_error' => 'Oops, Something went wrong. Please try again later.',
+    ],
+    'vote' => [
+        'messages' => [
+            'validations' => [
+                'select_programs_first' => 'Please select the program you want to vote first.',
+                'vote_not_started' => 'Please wait as the voting has not started yet.',
+                'vote_ended' => 'The voting has ended.'
+            ]
+        ]
+    ]
 ];

@@ -51,6 +51,9 @@
             'read' => 'Lihat stakeholder',
             'write' => 'Tambah, ubah dan hapus stakeholder',
         ],
+        'settings' => [
+            'write' => 'Ubah pengaturan',
+        ],
     ],
     'entity' => [
         'country' => [
@@ -169,7 +172,6 @@
                 'updated_at' => 'Diubah pada',
             ],
             'singular' => 'Stakeholder',
-            
         ],
         'voteresult' => [
             'plural' => 'Hasil vote',
@@ -177,7 +179,7 @@
                 'rank' => 'Urutan',
                 'total_votes' => 'Total suara',
                 'voting_period' => 'Tanggal pemungutan suara',
-                'total_voters' => 'Jumlah voter'
+                'total_voters' => 'Jumlah voter',
             ],
             'messages' => [
                 'no_data' => 'Pilih negara dan sesi voting terlebih dahulu',
@@ -186,8 +188,8 @@
                 'voters_by' => [
                     'age' => 'Voter berdasarkan rentang usia',
                     'gender' => 'Voter berdasarkan jenis kelamin',
-                    'area' => 'Voter berdasarkan dusun'
-                ]
+                    'area' => 'Voter berdasarkan dusun',
+                ],
             ],
             'actions' => [
                 'print' => 'Cetak',
@@ -204,7 +206,7 @@
                 'age' => [
                     'label' => 'Usia',
                     'others' => 'Lainnya',
-                    'unit' => 'tahun'
+                    'unit' => 'tahun',
                 ],
             ],
         ],
@@ -218,6 +220,7 @@
         'tab' => [
             'general' => 'Umum',
             'misc' => 'Lain-lain',
+            'footer' => 'Footer',
         ],
         'sections' => [
         ],
@@ -225,9 +228,34 @@
             'general' => [
                 'title' => 'Judul',
                 'slogan' => 'Slogan',
+                'about' => 'Tentang Kami',
+                'about_picture' => 'Gambar (Tentang Kami)'
             ],
             'misc' => [
                 'google_client_id' => 'Google OAuth 2.0 Client ID',
+            ],
+            'footer' => [
+                'socmed_accounts' => 'Akun sosial media',
+                'socmed_accounts_attributes' => [
+                    'platform' => 'Platform',
+                    'name' => 'Nama Akun',
+                ],
+                'supporters' => 'Supporters',
+                'supporters_attributes' => [
+                    'logo' => 'Logo',
+                ],
+            ],
+        ],
+    ],
+    'general' => [
+        'internal_server_error' => 'Ups, terjadi kesalahan. Mohon untuk mencoba kembali beberapa saat lagi.',
+    ],
+    'vote' => [
+        'messages' => [
+            'validations' => [
+                'select_programs_first' => 'Mohon pilih program yang ingin Anda vote terlebih dahulu.',
+                'vote_not_started' => 'Mohon untuk menunggu dikarenakan voting belum dimulai.',
+                'vote_ended' => 'Voting telah berakhir.',
             ],
         ],
     ],

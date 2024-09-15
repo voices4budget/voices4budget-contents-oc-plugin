@@ -10,6 +10,65 @@ tabs:
             span: auto
             type: text
             tab: 'voices4budget.contents::lang.settings.tab.general'
+        general_about:
+            label: 'voices4budget.contents::lang.settings.attributes.general.about'
+            span: full
+            type: textarea
+            tab: 'voices4budget.contents::lang.settings.tab.general'
+        general_about_picture:
+            label: 'voices4budget.contents::lang.settings.attributes.general.about_picture'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            maxFiles: 1
+            span: full
+            type: fileupload
+            tab: 'voices4budget.contents::lang.settings.tab.general'
+        footer_socmed_accounts:
+            label: 'voices4budget.contents::lang.settings.attributes.footer.socmed_accounts'
+            prompt: 'Add new account'
+            displayMode: accordion
+            showReorder: true
+            span: full
+            type: repeater
+            tab: 'voices4budget.contents::lang.settings.tab.footer'
+            form:
+                fields:
+                    platform:
+                        label: 'voices4budget.contents::lang.settings.attributes.footer.socmed_accounts_attributes.platform'
+                        options:
+                            whatsapp: WhatsApp
+                            email: Email
+                            instagram: Instagram
+                            youtube: YouTube
+                            linkedin: LinkedIn
+                        showSearch: true
+                        span: auto
+                        required: true
+                        type: dropdown
+                    name:
+                        label: 'voices4budget.contents::lang.settings.attributes.footer.socmed_accounts_attributes.name'
+                        span: auto
+                        required: true
+                        type: text
+                    url:
+                        label: URL
+                        span: auto
+                        required: true
+                        type: text
+        footer_supporters:
+            label: 'voices4budget.contents::lang.settings.attributes.footer.supporters'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            maxFiles: 5
+            span: full
+            type: fileupload
+            tab: 'voices4budget.contents::lang.settings.tab.footer'
         misc_google_client_id:
             label: 'voices4budget.contents::lang.settings.attributes.misc.google_client_id'
             span: full

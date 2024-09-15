@@ -45,12 +45,12 @@ class CategoryDetail extends ComponentBase
         return Category::find($this->property('categoryId'));
     }
 
-    public function votedCounts() {
-        return Category::votedByCurrentUser()->count();
+    public function votedCounts($voting_session_id) {
+        return Category::votedByCurrentUser($voting_session_id)->count();
     }
 
-    public function subcategoriesCount() {
-        return Category::areSubPrograms()->count();
+    public function subcategoriesCount($voting_session_id) {
+        return Category::subprograms($voting_session_id)->count();
     }
 
     public function onRemoveComment() {
@@ -101,7 +101,25 @@ class CategoryDetail extends ComponentBase
             if (!post('program_ids')) {
                 throw new AjaxException([
                     'success' => false,
-                    'message' => __('vote.messages.validations.select_programs_first')
+                    'message' => e(trans('voices4budget.contents::lang.vote.messages.validations.select_programs_first'))
+                ]);
+            }
+
+            $voting_session = VotingSession::where('is_active', 1)
+                ->where('country_id', $user->data['country'])
+                ->first();
+
+            if (!$voting_session->hasStarted()) {
+                throw new AjaxException([
+                    'success' => false,
+                    'message' => e(trans('voices4budget.contents::lang.vote.messages.validations.vote_not_started'))
+                ]);
+            }
+
+            if ($voting_session->hasEnded()) {
+                throw new AjaxException([
+                    'success' => false,
+                    'message' => e(trans('voices4budget.contents::lang.vote.messages.validations.vote_ended'))
                 ]);
             }
 
@@ -110,9 +128,7 @@ class CategoryDetail extends ComponentBase
                     'user_id' => $user->id,
                     'category_id' => post('category_id'),
                     'program_id' => $program_id,
-                    'voting_session_id' => VotingSession::where('is_active', 1)
-                        ->where('country_id', $user->data['country'])
-                        ->first()->id
+                    'voting_session_id' => $voting_session->id
                 ]);
 
                 if ($vote->id) {
@@ -137,7 +153,7 @@ class CategoryDetail extends ComponentBase
 
         return [
             'success' => true,
-            'next_category' => $vote->category->nextCategory($vote->voting_session_id)->id ?? null
+            'next_category' => $vote->category->nextCategory($voting_session->id)->id ?? null
         ];
     }
 }

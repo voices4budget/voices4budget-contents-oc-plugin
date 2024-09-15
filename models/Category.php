@@ -49,30 +49,34 @@ class Category extends Model
         'programs' => [Program::class, 'table' => 'voices4budget_contents_voting_sessions_categories']
     ];
 
-    public function isVotedByCurrentUser() {
+    public function isVotedByCurrentUser($voting_session_id) {
         return $this->votes()
             ->where('user_id', Auth::user()->id)
+            ->where('voting_session_id', $voting_session_id)
             ->count() > 0;
     }
 
-    public function areSubcategoriesVotedByCurrentUser() {
-        return $this->children()->votedByCurrentUser()->count() >= $this->children()->count();
+    public function areSubcategoriesVotedByCurrentUser($voting_session_id) {
+        return $this->children()->votedByCurrentUser($voting_session_id)->count() >= $this->children()->count();
     }
 
-    public function scopeVotedByCurrentUser($query) {
-        $query->whereHas('votes', function($q) {
-            $q->where('user_id', Auth::user()->id);
+    public function scopeVotedByCurrentUser($query, $voting_session_id) {
+        $query->whereHas('votes', function($q) use($voting_session_id) {
+            $q->where('user_id', Auth::user()->id)
+                ->where('voting_session_id', $voting_session_id);
         });
     }
 
-    public function scopeNotVotedByCurrentUser($query) {
-        $query->whereDoesntHave('votes', function($q) {
-            $q->where('user_id', Auth::user()->id);
+    public function scopeNotVotedByCurrentUser($query, $voting_session_id) {
+        $query->whereDoesntHave('votes', function($q) use($voting_session_id) {
+            $q->where('user_id', Auth::user()->id)
+                ->where('voting_session_id', $voting_session_id);
         });
     }
 
-    public function scopeAreSubprograms($query) {
-        $query->whereNotNull('parent_id');
+    public function scopeSubprograms($query, $voting_session_id) {
+        $query->whereNotNull('parent_id')
+            ->hasVotingSession($voting_session_id);
     }
 
     public function scopeHasVotingSession($query, $id) {
@@ -123,8 +127,6 @@ class Category extends Model
                 ->mapWithKeys(function($item, $key) use ($dusun) {
                     return [$dusun->where('id', $key)->first()->name ?? 'others' => count($item)];
                 });
-
-                // dd($program->votesByDusun);
         }
 
         return $programs;
@@ -158,7 +160,7 @@ class Category extends Model
 
         foreach ($parents as $parent) {
             foreach ($parent->children()->hasVotingSession($voting_session_id)->get() as $child) {
-                if (!$child->isVotedByCurrentUser()) {
+                if (!$child->isVotedByCurrentUser($voting_session_id)) {
                     return $child;
                 }
             }

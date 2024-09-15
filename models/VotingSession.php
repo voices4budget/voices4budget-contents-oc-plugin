@@ -42,8 +42,20 @@ class VotingSession extends Model
         return Carbon::now()->gte($this->ends_at);
     }
 
+    public function hasStarted() {
+        return Carbon::now()->gte($this->starts_at);
+    }
+
     public function scopeEnded($query) {
         $query->where('ends_at', '<=', Carbon::now());
+    }
+
+    public function scopeStarted($query) {
+        $query->where('starts_at', '>=', Carbon::now());
+    }
+
+    public function scopeIsOngoing($query) {
+        $query->started()->where('ends_at', '>', Carbon::now());
     }
 
 }

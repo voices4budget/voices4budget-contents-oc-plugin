@@ -68,6 +68,9 @@ permissions:
     voices4budget.stakeholders.write:
         tab: 'voices4budget.contents::lang.plugin.name'
         label: 'voices4budget.contents::lang.permissions.stakeholders.write'
+    voices4budget.settings.write:
+        tab: 'voices4budget.contents::lang.plugin.name'
+        label: 'voices4budget.contents::lang.permissions.settings.write'
 navigation:
     locations:
         label: 'voices4budget.contents::lang.menu.locations'

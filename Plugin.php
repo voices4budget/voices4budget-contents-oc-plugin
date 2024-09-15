@@ -11,6 +11,7 @@ use Voices4Budget\Contents\Components\CategoryDetail;
 use Voices4Budget\Contents\Components\CountriesList;
 use Voices4Budget\Contents\Components\IdeaForm;
 use Voices4Budget\Contents\Components\ProgramsList;
+use Voices4Budget\Contents\Components\Settings;
 use Voices4Budget\Contents\Components\VotersAuthentication;
 use Voices4Budget\Contents\Components\VotingSessionsList;
 use Voices4budget\Contents\Models\Setting;
@@ -55,7 +56,8 @@ class Plugin extends PluginBase
             IdeaForm::class => 'ideaForm',
             ActiveVotingSession::class => 'activeVotingSession',
             VotingSessionsList::class => 'votingSessionsList',
-            AreasList::class => 'areasList'
+            AreasList::class => 'areasList',
+            Settings::class => 'settings'
         ];
     }
 
@@ -71,6 +73,7 @@ class Plugin extends PluginBase
                 'category' => 'VOICES4BUDGET',
                 'icon' => 'icon-bullhorn',
                 'class' => Setting::class,
+                'permissions' => ['voices4budget.settings.write']
             ]
         ];
     }
