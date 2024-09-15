@@ -162,7 +162,7 @@ class ExtendUserPlugin
                 'type' => 'dropdown',
                 'span' => 'auto',
                 'options' => [
-                    '17-25' => '17 - 25 years old',
+                    '15-25' => '15 - 25 years old',
                     '26-45' => '26 - 45 years old',
                     '45-65' => '45 - 65 years old',
                     'others' => 'Others'

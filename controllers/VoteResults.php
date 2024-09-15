@@ -42,7 +42,7 @@ class VoteResults extends Controller
 
     public function ages() {
         return [
-            '17-25' => '17-25',
+            '15-25' => '15-25',
             '26-45' => '26-45',
             '46-65' => '46-65',
             'others' => e(trans('voices4budget.contents::lang.entity.user.attributes.age.others'))
