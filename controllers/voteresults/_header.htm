@@ -7,7 +7,7 @@
     <tr>
         <td class="fw-bold"><?= e(trans('voices4budget.contents::lang.entity.voteresult.attributes.voting_period')) ?></td>
         <td>:</td>
-        <td><?= $voting_session->starts_at->format('j F Y') ?> - <?= $voting_session->ends_at->format('j F Y') ?></td>
+        <td><?= $voting_session->starts_at->setTimezone($prefs->timezone ?? config('app.timezone'))->format('j F Y') ?> - <?= $voting_session->ends_at->setTimezone($prefs->timezone ?? config('app.timezone'))->format('j F Y') ?> </td>
     </tr>
     <tr>
         <td class="fw-bold"><?= e(trans('voices4budget.contents::lang.entity.voteresult.attributes.total_voters')) ?></td>

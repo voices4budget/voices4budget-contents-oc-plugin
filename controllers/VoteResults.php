@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Backend\Models\Preference;
 use Carbon\Carbon;
 use RainLab\User\Models\User;
 use Voices4budget\Contents\Models\Area;
@@ -94,6 +95,7 @@ class VoteResults extends Controller
             ->get();
         $this->vars['voting_session'] = VotingSession::find($session_id);
         $this->vars['now'] = Carbon::now();
+        $this->vars['prefs'] = Preference::instance();
 
         $this->vars['voters'] = [
             'byAge' => User::getVotesByAttribute($session_id, 'data.age'),
